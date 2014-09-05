@@ -49,10 +49,10 @@ define("MASTER_EMAIL", "admin@hms.com");
 
 define("TITLE", "HMS");
 
-define("WEBSITE_URL", "http://development.bobdesaunois.com/HMS/");
+define("WEBSITE_URL", "http://localhost/project-falcon-storm");
 
-define("USERNAME", "homeworkAdmin");
-define("PASSWORD", "kinetic");
+define("USERNAME", "root");
+define("PASSWORD", "");
 define("DATABASE", "homework");
 define("HOSTNAME", "mysql:host=localhost;dbname=" . DATABASE);
 
