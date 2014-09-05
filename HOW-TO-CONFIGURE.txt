@@ -45,6 +45,16 @@ Make sure that DATABASE is set to "homework", do not change this.
 
 HOSTNAME shouldn't have to be changed unless your database is not on localhost.
 
+Lastly there is one more thing to do.
+After you've made sure all the above steps went successfully,
+you will now have to set the application to production mode.
+This is done by scrolling down a little more until you see
+
+" define('ENVIRONMENT', 'development'); "
+
+change that to
+
+" define('ENVIRONMENT', 'production'); "
 
 If you've set all the configurations and execute the Database seed;
 the application should now be running accordingly.
