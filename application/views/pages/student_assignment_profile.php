@@ -1,3 +1,7 @@
+<!--Let's get some Dart going in this bitch-->
+<script async src='<?=base_url();?>assets/dart/build/web/packages/browser/dart.js'></script>
+<script async src='<?=base_url();?>assets/dart/build/web/upload_handling.dart.js'></script>
+
 <?php // die(var_dump($homework)); ?>
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -75,7 +79,7 @@
       
    <?php if( ! $homework): ?>
       
-      <?php // if(): ?>
+      <?php // if(): what the fuck happened here?>
       
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -85,11 +89,11 @@
           
             Selecteer een bestand om te uploaden.<br/><br/>
             
-            <form method="POST" enctype="multipart/form-data">
+            <!--<form method="POST" enctype="multipart/form-data"> DISABLED FOR TESTING-->
                 <input name="homework" class="btn-primary" type="file" title="Huiswerk uploaden" required />
                 <br/><br/>
                 <input name="submit_homework" class='btn btn-primary' type="submit" value="Huiswerk inleveren" />
-            </form>
+            <!--</form>-->
             
         </div>
       </div>

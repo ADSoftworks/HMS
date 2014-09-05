@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "file": "upload_handling.dart.js",
+  "sourceRoot": "",
+  "sources": ["packages/$sdk/lib/_internal/lib/js_primitives.dart","upload_handling.dart","packages/$sdk/lib/_internal/lib/internal_patch.dart"],
+  "names": ["printString","main","printToConsole"],
+  "mappings": "A;A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;A;;eAoBAA;;;AAIIA;;;;AAOAA;;;AAKAA;;;AAMAA;;;GAOJA;;kC;;QCjDAC;ICiBEC;GDbFD;;;;A;A;;A;A;A;A;A;;;;;A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;A;C;;;;;;;;;;;;;;;;;;;;;;;;;;;;A"
+}
