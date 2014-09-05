@@ -100,7 +100,7 @@
       
       <?php else: ?>
       
-        <a href="<?=base_url()?>/assets/uploads/<?=$homework["file_source"];?>" target="_blank">
+        <a id='upload_button' href="<?=base_url()?>/assets/uploads/<?=$homework["file_source"];?>" target="_blank">
         <button class="btn btn-primary">Bekijk huiswerk</button>
         </a>
       
