@@ -1,7 +1,4 @@
 <!--Let's get some Dart going in this bitch-->
-<script async src='<?=base_url();?>assets/dart/build/web/packages/browser/dart.js'></script>
-<script async src='<?=base_url();?>assets/dart/build/web/upload_handling.dart.js'></script>
-
 <?php // die(var_dump($homework)); ?>
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -121,3 +118,5 @@ I FUCKING LOVE LIBRARIES OH MY GOD YOU SAVED ME SO MUCH TIME WITH THIS <33333333
 $('input[type=file]').bootstrapFileInput();
 $('.file-inputs').bootstrapFileInput();
 </script>
+<!--<script src='<?=base_url();?>assets/dart/build/web/upload_handling.dart.js'></script>
+<script type='application/dart' src='<?=base_url();?>assets/dart/build/web/packages/browser/dart.js'></script>-->
