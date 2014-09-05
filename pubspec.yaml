@@ -1,0 +1,4 @@
+name: Project_Falcon_Storm
+description: A sample web application
+dependencies:
+  browser: any
