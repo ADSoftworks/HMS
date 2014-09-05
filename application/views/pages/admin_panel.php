@@ -68,16 +68,16 @@
               ID
           </th>
           <th>
-              Email adres
+              Email address
           </th>
           <th>
-              Gebruikers groep
+              User groep
           </th>
           <th>
-              Aanpassen
+              Edit
           </th>
           <th>
-              Verwijderen
+              Delete
           </th>
           
       </tr>
@@ -112,13 +112,13 @@
           
           <td>
               <a href="<?=base_url();?>index.php/admin/edituser/<?=$user["id"];?>">
-                  <button class="btn btn-primary">Aanpassen</button>
+                  <button class="btn btn-primary">Edit</button>
               </a>
           </td>
           
           <td>
               <a href="<?=base_url();?>index.php/admin/deleteuser/<?=$user["id"];?>">
-                  <button class="btn btn-primary">Verwijderen</button>
+                  <button class="btn btn-primary">Delete</button>
               </a>
           </td>
           
@@ -133,9 +133,9 @@
       
       <div class="panel panel-primary">
         <!-- Default panel contents -->
-        <div class="panel-heading">Alle actieve groepen</div>
+        <div class="panel-heading">All active groups</div>
         <div class="panel-body">
-          <p>Een overzicht van alle actieve groepen.</p>
+          <p>An overview of all active groups.</p>
         </div>
 
         <!-- Table -->
@@ -147,7 +147,7 @@
             
             if( ! $groups) {
                 
-                echo "<tr><td>Geen actieve groepen</td></tr>";
+                echo "<tr><td>No active groups</td></tr>";
                 
             } else {
             
@@ -159,22 +159,22 @@
                     ID
                 </th>
                 <th>
-                    Naam
+                    Name
                 </th>
                 <th>
-                    Beschrijving
+                    Description
                 </th>
                 <th>
-                    Docenten ID
+                    Teacher ID
                 </th>
                 <th>
-                    Studente IDs
+                    Student IDs
                 </th>
                 <th>
-                    Code
+                    Group Code
                 </th>
                 <th>
-                    Verwijderen
+                    Delete
                 </th>
                 
             </tr>
@@ -205,7 +205,7 @@
                     <div class="btn-group">
                         <a href='<?=base_url()?>index.php/admin/deletegroup/<?=$group["id"];?>'>
                             <button type="button" class="btn btn-primary">
-                              Verwijderen
+                              Delete
                             </button>
                         </a>
                   </div>
@@ -222,13 +222,13 @@
       
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Docent aanmaken</h3>
+          <h3 class="panel-title">Create docent</h3>
         </div>
         <div class="panel-body">
           
             <form method="POST">
             
-            Voer een email adres en wachtwoord in voor het nieuwe docenten account.
+            Enter an email address and password for the new teacher account.
             <br/><br/>
             <div class="col-lg-6">
             <div class="input-group">

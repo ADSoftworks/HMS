@@ -1,18 +1,18 @@
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title">Gebruikers Profiel</h3>
+    <h3 class="panel-title">User profile</h3>
   </div>
   <div class="panel-body">
     
       <a href="<?php echo base_url() ?>index.php/admin">
       <button type="button" class="btn btn-primary">
-        Terug
+        Go back
       </button>
       </a>
       <br/><br/>
       <div class="panel panel-primary">
         <!-- Default panel contents -->
-        <div class="panel-heading">Profiel</div>
+        <div class="panel-heading">Profile</div>
         <!--<div class="panel-body">-->
 
         <!-- Table -->
@@ -26,16 +26,16 @@
                     Email
                 </th>
                 <th>
-                    Wachtwoord (Encrypted)
+                    Password (Encrypted)
                 </th>
                 <th>
-                    Gebruikers Groep
+                    User group
                 </th>
                 <th>
-                    Aanpassen
+                    Edit
                 </th>
                 <th>
-                    Verwijderen
+                    Delete
                 </th>
             </tr>
             
@@ -59,7 +59,7 @@
                             break;
                         
                         case 1:
-                            echo "Docent";
+                            echo "Teacher";
                             break;
                         
                     }
@@ -69,14 +69,14 @@
                 <td>
                     <a href="<?php echo base_url() ?>index.php/admin/edituser/<?php echo $user["id"]; ?>">
                     <button type="button" class="btn btn-primary">
-                    Aanpassen
+                    Edit
                   </button>
                     </a>
                 </td>
                 <td>
                     <a href="<?php echo base_url() ?>index.php/admin/deleteuser/<?php echo $user["id"]; ?>">
                     <button type="button" class="btn btn-primary">
-                    Verwijderen
+                    Delete
                   </button>
                     </a>
                 </td>
