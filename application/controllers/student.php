@@ -179,11 +179,18 @@ class Student extends CI_controller {
                 $user_id = $this->User_model->getIdByEmail($this->session->userdata("email"));
                 
                 $data["assignment"] = $this->Assignment_model->getAssignmentById($param_id);
-                $data["homework"] = $this->Homework_model->getHomeworkByAssignmentIdAndUserId($param_id, $user_id);
+                if($data["homework"] = $this->Homework_model->getHomeworkByAssignmentIdAndUserId($param_id, $user_id)) {
                 
-                $this->load->view("templates/header.php");
-                $this->load->view("pages/student_assignment_profile.php", $data);
-                $this->load->view("templates/footer.php");
+                    $this->load->view("templates/header.php");
+                    $this->load->view("pages/student_assignment_profile.php", $data);
+                    $this->load->view("templates/footer.php");
+
+                } else {
+                    
+                    $this->session->set_userdata("warning", "There is no assignment with this id.");
+                    header("Location: " . base_url() . "index.php");
+                    
+                }
 
             }
 
