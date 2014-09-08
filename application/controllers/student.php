@@ -61,7 +61,7 @@ class Student extends CI_controller {
         
         if($this->User_model->isDocent()) {
             
-            $this->session->set_userdata("warning", "U bent geen student.");
+            $this->session->set_userdata("warning", "You are no student.");
             header("Location: " . base_url() . "index.php/docent");
             exit();
             
@@ -86,7 +86,7 @@ class Student extends CI_controller {
             
             if( ! $data["group"]) {
                 
-                $this->session->set_userdata("warning", "Deze groep bestaat niet.");
+                $this->session->set_userdata("warning", "This group does not exist.");
                 header("Location: " . base_url() . "index.php/student");
                 exit(0);
                 
@@ -94,7 +94,7 @@ class Student extends CI_controller {
             
                 if( ! $this->Group_model->isMemberOfGroupById($param_id, $me)) {
                 
-                    $this->session->set_userdata("warning", "U maakt geen deel uit van deze groep.");
+                    $this->session->set_userdata("warning", "You are no part of this group.");
                     header("Location: " . base_url() . "index.php/student");
                     exit(0);
                     
@@ -125,14 +125,17 @@ class Student extends CI_controller {
             
                 $forbiddenExtensions = 
                     array("php", "sql", "sh", "js", "html", 
-                    "css", "cs", "asp", "jar", "jsp");
+                    "css", "cs", "asp", "jar", "jsp", "cpp");
 
                 $temp = explode(".", $_FILES["homework"]["name"]);
                 $extension = end($temp);
 
                 if(in_array($extension, $forbiddenExtensions)) {
 
-                    $this->session->set_userdata("warning", "Dit is een verboden extensie, you interesting little hacker ;)");
+                    $this->session->set_userdata("warning", "This is a forbidden extension.");
+                    /*
+                     * @TODO Create a security log that someone tried to do this.
+                     */
 
                 } else {
 
@@ -153,7 +156,7 @@ class Student extends CI_controller {
                                 $assignment["group_id"], 
                                 $assignment["id"]);
                         
-                        $this->session->set_userdata("warning", "Huiswerk successvol ingeleverd!");
+                        $this->session->set_userdata("warning", "Homework successfully uploaded!");
 
                     }
                     

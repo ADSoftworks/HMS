@@ -228,7 +228,7 @@ class Group_model extends CI_Model {
         
         if( ! $this->isMemberOfGroupById($group_id, $student_id)) {
             
-            $this->session->set_userdata("warning", "U maakt geen deel uit van deze groep.");
+            $this->session->set_userdata("warning", "You are no part of this group.");
             header("Location: " . base_url() . "index.php/student");
             
         } else {
@@ -264,7 +264,7 @@ class Group_model extends CI_Model {
             
             if(in_array($id, $student_ids)) {
 
-                $this->session->set_userdata("warning", "U maakt al deel uit van deze groep");
+                $this->session->set_userdata("warning", "You are already a part of this group");
 
             } else {
 
@@ -279,13 +279,13 @@ class Group_model extends CI_Model {
                 $stmt->bindParam(":code", $param_code, PDO::PARAM_STR);
                 $stmt->execute();
 
-                $this->session->set_userdata("warning", "U maakt nu deel uit van deze groep.");
+                $this->session->set_userdata("warning", "You are now a part of this group.");
 
             }
                 
             } else {
             
-            $this->session->set_userdata("warning", "Deze groep bestaat niet.");
+            $this->session->set_userdata("warning", "This group does not exist.");
             
         }
         

@@ -48,7 +48,7 @@ class AdminLogin extends CI_Controller {
         if(!in_array($page, $allowed_pages)) {
             
             $page = $allowed_pages[0];
-            $this->session->set_userdata("warning", "Deze pagina kan u niet vanaf hier bezoeken.");
+            $this->session->set_userdata("warning", "You cannot visit this page from here.");
             
         }
         

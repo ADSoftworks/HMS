@@ -36,7 +36,7 @@ class Docent extends CI_Controller {
         
         if( ! $this->User_model->isDocent()) {
            
-            $this->session->set_userdata("warning", "U bent geen docent.");
+            $this->session->set_userdata("warning", "You are no docent.");
             header("Location: " . base_url() . "index.php/student");
             exit();
             
@@ -56,7 +56,7 @@ class Docent extends CI_Controller {
             
             $this->Group_model->create($name, $description);
             
-            $this->session->set_userdata("warning", "Groep successvol aangemaakt.");
+            $this->session->set_userdata("warning", "Group successfully created.");
             
         }
         
@@ -79,7 +79,7 @@ class Docent extends CI_Controller {
     public function logout() {
         
         $this->session->unset_userdata("email");
-        $this->session->set_userdata("warning", "U bent successvol uitgelogd!");
+        $this->session->set_userdata("warning", "You've successfully logged out!");
         header("Location: " . base_url() . "index.php");
         exit();
         
@@ -88,7 +88,7 @@ class Docent extends CI_Controller {
     public function deleteStudentFromGroup($group_id, $param_id) {
         
         $this->Group_model->leave($group_id, $param_id);
-        $this->session->set_userdata("warning", "Student succesvol verwijderd uit groep.");
+        $this->session->set_userdata("warning", "Student successfully deleted from group.");
         header("Location: " . base_url() . "index.php/docent/groupprofile/" . $group_id);
         exit(0);
         
@@ -117,7 +117,7 @@ class Docent extends CI_Controller {
         if(isset($param_id)) {
 
             $this->Group_model->deleteById($param_id);
-            $this->session->set_userdata("warning", "Groep successvol verwijderd!");
+            $this->session->set_userdata("warning", "Group successfully deleted!");
             header("Location: " . base_url() . "index.php/docent");
             exit(0);
             
@@ -129,7 +129,7 @@ class Docent extends CI_Controller {
         
         $homework = $this->Homework_model->getById($param_id);
         $this->Homework_model->deleteById($param_id);
-        $this->session->set_userdata("warning", "Huiswerk verwijderd.");
+        $this->session->set_userdata("warning", "Homework deleted.");
         header("Location: " . base_url() . "index.php/docent/assignmentprofile/" . $homework["assignment_id"]);
         exit(0);
                 
@@ -141,7 +141,7 @@ class Docent extends CI_Controller {
         
         $homework = $this->Homework_model->getById($param_id);
         $this->Homework_model->updateStatusById($param_id, $param_status);
-        $this->session->set_userdata("warning", "Huiswerk status geupdate naar goedgekeurd!");
+        $this->session->set_userdata("warning", "Homework status updated to approved!");
         header("Location: " . base_url() . "index.php/docent/assignmentprofile/" . $homework["assignment_id"]);
         exit(0);
         
@@ -153,7 +153,7 @@ class Docent extends CI_Controller {
         
         $homework = $this->Homework_model->getById($param_id);
         $this->Homework_model->updateStatusById($param_id, $param_status);
-        $this->session->set_userdata("warning", "Huiswerk status geupdate naar afgewezen!");
+        $this->session->set_userdata("warning", "Homework status updated to rejected!");
         header("Location: " . base_url() . "index.php/docent/assignmentprofile/" . $homework["assignment_id"]);
         exit(0);
         
@@ -165,7 +165,7 @@ class Docent extends CI_Controller {
             
             $assignment = $this->Assignment_model->getAssignmentById($param_id);
             $this->Assignment_model->deleteById($param_id);
-            $this->session->set_userdata("warning", "Opdracht successvol verwijderd.");
+            $this->session->set_userdata("warning", "Assignment successfully deleted.");
             header("Location: " . base_url() . "index.php/docent/groupprofile/" . $assignment["group_id"]);
             exit(0);
             
@@ -215,7 +215,7 @@ class Docent extends CI_Controller {
             
             $this->Assignment_model->create($title, $description, $param_id);
             
-            $this->session->set_userdata("warning", "Opdracht succesvol aangemaakt.");
+            $this->session->set_userdata("warning", "Assignment successfully created.");
             
         }
         
@@ -241,7 +241,7 @@ class Docent extends CI_Controller {
                     
                     if($data["group"]["docent_id"] != $me) {
                         
-                        $this->session->set_userdata("warning", "Deze groep is niet van u.");
+                        $this->session->set_userdata("warning", "This group is not yours.");
                         header("Location: " . base_url() . "index.php/docent");
                         exit(0);
                         
@@ -255,7 +255,7 @@ class Docent extends CI_Controller {
 
                 } else {
                     
-                    $this->session->set_userdata("warning", "Er bestaat geen groep met dit ID (" . $param_id . ").");
+                    $this->session->set_userdata("warning", "There is no such group as one with this ID (" . $param_id . ").");
                     header("Location: " . base_url() . "index.php/docent");
                     exit(0);
                     
@@ -281,7 +281,7 @@ class Docent extends CI_Controller {
             
             $page = $allowed_pages[0];
             $this->session->set_userdata
-                    ("warning", "U kunt deze pagina vanaf hier niet bezoeken.");
+                    ("warning", "You cannot visit this page from here.");
             
         }
             

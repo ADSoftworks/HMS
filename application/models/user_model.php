@@ -81,13 +81,13 @@ class User_model extends CI_Model {
                 
                 if($result["group_id"] == 0) {
                 
-                    $this->session->set_userdata("warning", "Welkom, student!");
+                    $this->session->set_userdata("warning", "Welcome student!");
                     header("Location: " . base_url() . "index.php/student");
                     exit();
                     
                 } else if($result["group_id"] == 1) {
                     
-                    $this->session->set_userdata("warning", "Welkom docent, fijne werkdag!");
+                    $this->session->set_userdata("warning", "Welcome docent!");
                     header("Location: " . base_url() . "index.php/docent");
                     exit();
                     
@@ -95,7 +95,7 @@ class User_model extends CI_Model {
                 
             } else {
                 
-                $this->session->set_userdata("warning", "Foutief email of wachtwoord.");
+                $this->session->set_userdata("warning", "Wrong email or password.");
             
             }
             
@@ -113,7 +113,7 @@ class User_model extends CI_Model {
     public function logout() {
         
         $this->session->unset_userdata("email");
-        $this->session->set_userdata("warning", "U bent succesvol uitgelogd!");
+        $this->session->set_userdata("warning", "You've been successfully logged out!");
         header("Location: " . base_url() . "index.php");
         exit();
         
@@ -143,7 +143,7 @@ class User_model extends CI_Model {
                 
             }
             
-            $this->session->set_userdata("warning", "Het oude wachtwoord komt niet overeen.");
+            $this->session->set_userdata("warning", "The old password does not match.");
             return false;
             
         }
@@ -172,11 +172,11 @@ class User_model extends CI_Model {
             $stmt->bindParam(":email", $email, PDO::PARAM_STR);
             $stmt->execute();
         
-            $this->session->set_userdata("warning", "Uw wachtwoord is succesvol aangepast!");
+            $this->session->set_userdata("warning", "Your password was successfully changed!");
             
        } else {
        
-       $this->session->set_userdata("warning", "Uw wachtwoord kon niet worden veranderd.");
+       $this->session->set_userdata("warning", "Could not change your password.");
         
        }
        
@@ -207,11 +207,12 @@ class User_model extends CI_Model {
 
                 mail($email, $subject, $message, $headers);
 
-                $this->session->set_userdata("warning", "Uw nieuwe wachtwoord is verstuurd!");
+                $this->session->set_userdata("warning", "Your new password has been sent!");
 
             } else {
                 
-                $this->session->set_userdata("warning", "Er is geen account bekend met dat email adres.");
+                $this->session->set_userdata("warning", "There is no account found with this email address.");
+                
             }
 
         }
@@ -263,13 +264,13 @@ class User_model extends CI_Model {
             
             if($password != $password_confirmation) {
 
-                $this->session->set_userdata("warning", "De wachtwoorden komen niet overeen.");
+                $this->session->set_userdata("warning", "The passwords do not match.");
 
             } else {
 
                 if($this->exists($email)) {
 
-                    $this->session->set_userdata("warning", "Account bestaat al.");
+                    $this->session->set_userdata("warning", "Account already exists.");
 
                 } else {
 
@@ -288,7 +289,7 @@ class User_model extends CI_Model {
                     $stmt->bindParam(":group_id", $group_id, PDO::PARAM_INT);
                     $stmt->execute();
 
-                    $this->session->set_userdata("warning", "Account succesvol aangemaakt!");
+                    $this->session->set_userdata("warning", "Account successfully created!");
 
                 }
 

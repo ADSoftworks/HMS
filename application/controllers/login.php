@@ -77,7 +77,7 @@ class Login extends CI_Controller {
         
         if(!in_array($page, $allowed_pages)) {
          
-            $this->session->userdata("warning", "U kunt deze pagina vanaf hier niet bezoeken.");
+            $this->session->userdata("warning", "You can't visit this page from here.");
             $page = $allowed_pages[0];
             
                 

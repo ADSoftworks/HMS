@@ -54,7 +54,7 @@ class Admin extends CI_Controller {
 
             } else {
                 
-                $this->session->set_userdata("warning", "Dit account bestaat niet.");
+                $this->session->set_userdata("warning", "This account does not exist.");
                 
             }
             
@@ -86,7 +86,7 @@ class Admin extends CI_Controller {
     public function deleteuser($param_id) {
         
         $this->User_model->deleteById($param_id);
-        $this->session->set_userdata("warning", "Account is succesvol verwijderd.");
+        $this->session->set_userdata("warning", "Account successfully deleted.");
         header("Location: " . base_url() . "index.php/admin");
         exit();
         
@@ -95,7 +95,7 @@ class Admin extends CI_Controller {
     public function deleteGroup($param_id) {
         
         $this->Group_model->deleteById($param_id);
-        $this->session->set_userdata("warning", "Groep is succesvol verwijderd.");
+        $this->session->set_userdata("warning", "Group successfully deleted.");
         header("Location: " . base_url() . "index.php/admin");
         exit();
         
@@ -111,7 +111,7 @@ class Admin extends CI_Controller {
             
             $this->User_model->updateById($param_id, $email, $password, $group_id);
             
-            $this->session->set_userdata("warning", "Account succesvol aangepast!");
+            $this->session->set_userdata("warning", "Accounts edited!");
             
         }
         
