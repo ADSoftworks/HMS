@@ -187,17 +187,24 @@ class Docent extends CI_Controller {
 
             } else {
 
-                $data["assignment"] = $this->Assignment_model->getAssignmentById($param_id);
-//                die(var_dump($data["assignment"]));
-                $data["homework"] = 
-                $this
-                ->Homework_model
-                ->getAllHomeworkByAssignmentId($param_id);
-                
-                $this->load->view("templates/header.php");
-                $this->load->view("pages/docent_assignment_profile.php", $data);
-                $this->load->view("templates/footer.php");
+                if($data["assignment"] = $this->Assignment_model->getAssignmentById($param_id)) {
+    
+                    $data["homework"] = 
+                    $this
+                    ->Homework_model
+                    ->getAllHomeworkByAssignmentId($param_id);
 
+                    $this->load->view("templates/header.php");
+                    $this->load->view("pages/docent_assignment_profile.php", $data);
+                    $this->load->view("templates/footer.php");
+
+                } else {
+                    
+                    $this->session->set_userdata("warning", "There is no assignment with this id.");
+                    header("Location: " . base_url() . "/index.php");
+                    
+                }
+                
             }
 
         }
