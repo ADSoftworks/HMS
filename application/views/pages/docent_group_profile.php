@@ -10,20 +10,20 @@
 <div class="panel panel-primary">
   
   <div class="panel-heading">
-    <h3 class="panel-title">Groep profiel: <?=$group["name"];?></h3>
+    <h3 class="panel-title">Group profile: <?=$group["name"];?></h3>
   </div>
     
   <div class="panel-body">
 
       <a href="<?=base_url();?>index.php/docent">
       <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-arrow-left"></span> Terug
+          <span class="glyphicon glyphicon-arrow-left"></span> Back
       </button>
       </a>
       
       <a href="<?=base_url();?>index.php/docent/groupsettings/<?=$group["id"];?>">
       <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-cog"></span> Groep instellingen
+          <span class="glyphicon glyphicon-cog"></span> Group settings
       </button>
       </a>
       
@@ -56,7 +56,7 @@
       
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Groep leden</h3>
+          <h3 class="panel-title">Group members</h3>
         </div>
         <div class="panel-body">
             
@@ -64,7 +64,7 @@
             <table class="table">
                 <tr>
                     <th>Email</th>
-                    <th>Verwijder uit groep</th>
+                    <th>Remove from group</th>
                 </tr>
                 <?php foreach($members as $member): ?>
                 <tr>
@@ -74,7 +74,7 @@
                     </td>
                     <td>
                         <a href="<?=base_url();?>index.php/docent/deletestudentfromgroup/<?=$group["id"];?>/<?=$user["id"];?>">
-                        <button type="button" class="btn btn-primary">Verwijder uit groep</button>
+                        <button type="button" class="btn btn-primary">Remove from group</button>
                         </a>
                     </td>
                     
@@ -83,7 +83,7 @@
             </table>
             <?php else: ?>
             
-            Er zijn geen studenten lid van deze groep.
+            There are no students a part of this group.
             
             <?php endif; ?>
             
@@ -92,7 +92,7 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Opdracht aanmaken</h3>
+          <h3 class="panel-title">Create assignment</h3>
         </div>
         <div class="panel-body">
           
@@ -100,7 +100,7 @@
                 
                 <div class="input-group col-md-6">
                     <span class="input-group-addon">Abc</span>
-                    <input name="param_title" type="text" class="form-control" placeholder="Opdracht titel" required>
+                    <input name="param_title" type="text" class="form-control" placeholder="Assignment title" required>
                 </div>
 
                 <br/>
@@ -110,15 +110,15 @@
                               style="height:200px;resize:vertical;" 
                               type="text" 
                               class="form-control" 
-                              placeholder="Opdracht beschrijving"
-                              required>Opdracht beschrijving</textarea>
+                              placeholder="Assignment description"
+                              required>Assignment description</textarea>
                 </div>
 
                 <br/>
 
                 <div class="btn-group">
                     <input name="submit_create_assignment" type="submit" 
-                           class="btn btn-primary" value="Maak opdracht aan" />
+                           class="btn btn-primary" value="Create assignment" />
                   </div>
             
             </form>
@@ -128,7 +128,7 @@
     
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Actieve opdrachten voor deze groep</h3>
+          <h3 class="panel-title">Active assignments for this group.</h3>
         </div>
         <div class="panel-body">
           
@@ -142,7 +142,7 @@
              
             if( ! $assignments) {
                 
-                echo "<strong>Er zijn geen opdrachten in deze groep.</strong>";
+                echo "<strong>There are no assignments for this group.</strong>";
                 
             } else {
             

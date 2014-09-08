@@ -2,7 +2,7 @@
 
 <div class="panel panel-default" id="login-panel">
   <div class="panel-heading">
-    <h3 class="panel-title">Docenten log in</h3>
+    <h3 class="panel-title">Teacher login</h3>
   </div>
   <div class="panel-body">
     
@@ -11,7 +11,7 @@
       <form method="POST">
           <div class="input-group input-group">
             <span class="input-group-addon">@</span>
-            <input name="param_email" type="email" class="form-control" placeholder="Email adres" required>
+            <input name="param_email" type="email" class="form-control" placeholder="Email address" required>
           </div>
           
           <!--</div>-->
@@ -20,9 +20,9 @@
           
         <div class="col-lg-6">
             <div class="input-group" id="password">
-              <input name="param_password" type="password" class="form-control" placeholder="Wachtwoord" required>
+              <input name="param_password" type="password" class="form-control" placeholder="Password" required>
               <span class="input-group-btn">
-                  <input name="submit_login" class="btn btn-default" type="submit" value="Log in" />
+                  <input name="submit_login" class="btn btn-default" type="submit" value="Login" />
               </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->
@@ -33,7 +33,7 @@
           <p id="orclickhere">
               <!--<a href="?c=docentlogin&m=index&a=docent_forgotpassword">-->
               <a href="<?php echo base_url() ?>index.php/docentlogin/index/docent_forgotpassword">
-                  Klik hier als je je wachtwoord bent vergeten.
+                  Click here if you've forgotten your password.
               </a>
           </p>
           

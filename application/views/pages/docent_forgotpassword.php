@@ -3,12 +3,12 @@
 
 <div class="panel panel-default" id="login-panel">
   <div class="panel-heading">
-    <h3 class="panel-title">Wachtwoord vergeten</h3>
+    <h3 class="panel-title">Forgot password</h3>
   </div>
   <div class="panel-body">
 
       <p>
-          Na het invullen van je email versturen we een email met je wachtwoord.
+          After you've submitted your data we'll send you an email with your new password.
       </p>
       
       <form method="POST">
@@ -25,7 +25,7 @@
         
         <p>
             <!--<a href="?c=studentlogin&m=index&a=student_login"><< Terug naar login scherm</a>-->            
-            <a href="<?php echo base_url(); ?>index.php/docentlogin"><< Terug naar login scherm</a>            
+            <a href="<?php echo base_url(); ?>index.php/docentlogin"><< Back to login screen</a>            
         </p>
       
         </form>

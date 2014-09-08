@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-      <h3 class="panel-title"><span class="glyphicon glyphicon glyphicon-th-list"></span> Groepen overzicht</h3>
+      <h3 class="panel-title"><span class="glyphicon glyphicon glyphicon-th-list"></span> Group overview</h3>
   </div>
   <div class="panel-body">
     
@@ -10,12 +10,12 @@
       <!--<div class="btn-group">-->
         <a href="<?=base_url();?>index.php/docent/logout">
             <button type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-log-out"></span> Uitloggen
+                <span class="glyphicon glyphicon-log-out"></span> Logout
             </button>
         </a>
         <a href="<?=base_url();?>index.php/docent/index/docent_settings">
         <button type="button" class="btn btn-primary">
-            <span class="glyphicon glyphicon-cog"></span> Instellingen
+            <span class="glyphicon glyphicon-cog"></span> Settings
         </button>
         </a>
 <!--        <button type="button" class="btn btn-default">
@@ -28,7 +28,7 @@
       <div class="panel panel-primary">
           
             <div class="panel-heading">
-              <h3 class="panel-title">Groep aanmaken</h3>
+              <h3 class="panel-title">Create group</h3>
             </div>
             <div class="panel-body">
               
@@ -48,7 +48,7 @@
                                       placeholder="Korte beschrijving" required></textarea>
                         </div>
                         <br/>
-                        <input name="submit_groep" type="submit" class="btn btn-primary" value="Maak groep aan" />
+                        <input name="submit_groep" type="submit" class="btn btn-primary" value="Create group" />
 
                     </div>
                     
@@ -60,7 +60,7 @@
       
       <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Groepen</h3>
+    <h3 class="panel-title">Groups</h3>
   </div>
   <div class="panel-body">  
       
@@ -78,7 +78,7 @@
             TEMPLATE
 -->
 
-            <strong><h4>Kies een groep om mee te werken</h4></strong>
+            <strong><h4>Choose a group to work with</h4></strong>
 
             <?php
             
@@ -86,7 +86,7 @@
             
             if( ! $groups) {
                 
-                echo "<strong>U maakt geen deel uit van een groep.</strong>";
+                echo "<strong>You are not a part of a group.</strong>";
                 
             } else {
             

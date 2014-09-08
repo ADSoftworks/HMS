@@ -2,13 +2,13 @@
 <?php // die(var_dump($homework)); ?>
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Opdracht profiel</h3>
+    <h3 class="panel-title">Assignment profile</h3>
   </div>
   <div class="panel-body">
     
       <a href="<?=base_url();?>index.php/student/groupprofile/<?=$assignment["group_id"];?>">
       <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-arrow-left"></span> Terug
+          <span class="glyphicon glyphicon-arrow-left"></span> Back
       </button>
       </a>
       
@@ -32,7 +32,7 @@
 
                 <div class="progress">
                     <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                      <span>Voldoende!</span>
+                      <span>Approved!</span>
                     </div>
                   </div>
 
@@ -42,7 +42,7 @@
 
                 <div class="progress">
                     <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                      <span>Wachten op goedkeuring</span>
+                      <span>Pending</span>
                     </div>
                   </div>
 
@@ -52,7 +52,7 @@
 
                 <div class="progress">
                     <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                      <span>Onvoldoende</span>
+                      <span>Rejected</span>
                     </div>
                   </div>
 
@@ -66,7 +66,7 @@
       
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Opdracht</h3>
+            <h3 class="panel-title">Assignment</h3>
         </div>
         <div class="panel-body">
               <p class="lead"><?=$assignment["title"];?></p>
@@ -80,16 +80,16 @@
       
     <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Opdracht inleveren</h3>
+          <h3 class="panel-title">Upload homework.</h3>
         </div>
         <div class="panel-body">
           
-            Selecteer een bestand om te uploaden.<br/><br/>
+            Select a file to hand in..<br/><br/>
             
-            <!--<form method="POST" enctype="multipart/form-data"> DISABLED FOR TESTING-->
-                <input name="homework" class="btn-primary" type="file" title="Huiswerk uploaden" required />
+            <form method="POST" enctype="multipart/form-data"> <!--DISABLED FOR TESTING-->
+                <input name="homework" class="btn-primary" type="file" title="Select a file to hand in" required />
                 <br/><br/>
-                <input name="submit_homework" class='btn btn-primary' type="submit" value="Huiswerk inleveren" />
+                <input name="submit_homework" class='btn btn-primary' type="submit" value="Upload" />
             <!--</form>-->
             
         </div>
@@ -98,7 +98,7 @@
       <?php else: ?>
       
         <a id='upload_button' href="<?=base_url()?>/assets/uploads/<?=$homework["file_source"];?>" target="_blank">
-        <button class="btn btn-primary">Bekijk huiswerk</button>
+        <button class="btn btn-primary">View homework</button>
         </a>
       
       <?php endif;#endif; ?>

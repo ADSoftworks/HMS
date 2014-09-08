@@ -10,14 +10,14 @@
 <div class="panel panel-primary">
   
   <div class="panel-heading">
-    <h3 class="panel-title">Groep profiel: <?=$group["name"];?></h3>
+    <h3 class="panel-title">Group profile: <?=$group["name"];?></h3>
   </div>
     
   <div class="panel-body">
 
       <a href="<?=base_url();?>index.php/student">
       <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-arrow-left"></span> Terug
+          <span class="glyphicon glyphicon-arrow-left"></span> Back
       </button>
       </a>
       
@@ -40,7 +40,7 @@
     
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Actieve opdrachten voor deze groep</h3>
+          <h3 class="panel-title">Active assignments for this group</h3>
         </div>
         <div class="panel-body">
           
@@ -58,7 +58,7 @@
              
             if( ! $assignments) {
                 
-                echo "<strong>Er zijn geen opdrachten in deze groep.</strong>";
+                echo "<strong>This group has no assignments.</strong>";
                 
             } else {
             
@@ -82,7 +82,7 @@
                     
                     <div class="progress">
                         <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                          <span>Voldoende!</span>
+                          <span>Approved!</span>
                         </div>
                       </div>
 
@@ -92,7 +92,7 @@
 
                     <div class="progress">
                         <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                          <span>Wachten op goedkeuring</span>
+                          <span>Pending</span>
                         </div>
                       </div>
 
@@ -102,7 +102,7 @@
 
                     <div class="progress">
                         <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                          <span>Onvoldoende</span>
+                          <span>Rejected</span>
                         </div>
                       </div>
 

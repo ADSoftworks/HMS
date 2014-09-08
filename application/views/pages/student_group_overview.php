@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-      <h3 class="panel-title"><span class="glyphicon glyphicon glyphicon-th-list"></span> Groepen overzicht</h3>
+      <h3 class="panel-title"><span class="glyphicon glyphicon glyphicon-th-list"></span> Group overview</h3>
   </div>
   <div class="panel-body">
     
@@ -10,12 +10,12 @@
       <!--<div class="btn-group">-->
         <a href="<?php echo base_url(); ?>index.php/student/logout">
             <button type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-log-out"></span> Uitloggen
+                <span class="glyphicon glyphicon-log-out"></span> Logout
             </button>
         </a>
         <a href="<?php echo base_url(); ?>index.php/student/index/student_settings">
         <button type="button" class="btn btn-primary">
-            <span class="glyphicon glyphicon-cog"></span> Instellingen
+            <span class="glyphicon glyphicon-cog"></span> Settings
         </button>
         </a>
 <!--        <button type="button" class="btn btn-default">
@@ -26,7 +26,7 @@
       
       <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Word lid van een groep</h3>
+    <h3 class="panel-title">Become a member of a group</h3>
   </div>
   <div class="panel-body">
       
@@ -34,9 +34,9 @@
       
         <div class="col-lg-6">
             <div class="input-group">
-              <input name="param_groupcode" type="text" class="form-control" placeholder="Groepscode" required>
+              <input name="param_groupcode" type="text" class="form-control" placeholder="Groupcode" required>
               <span class="input-group-btn">
-                <input name="submit_joingroup" class="btn btn-default" type="submit" value="Word lid" />
+                <input name="submit_joingroup" class="btn btn-default" type="submit" value="Join" />
               </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->
@@ -48,7 +48,7 @@
       
       <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Groepen</h3>
+    <h3 class="panel-title">Groups</h3>
   </div>
   <div class="panel-body">
 
@@ -67,7 +67,7 @@
             TEMPLATE
 -->
 
-<strong><h4>Kies een groep</h4></strong>
+<strong><h4>Choose a group</h4></strong>
 
             <?php
             
@@ -78,7 +78,7 @@
             
             if( ! $groups) {
                 
-                echo "<strong>U maakt geen deel uit van een groep.</strong>";
+                echo "<strong>You are not a part of any group.</strong>";
                 
             } else {
             
