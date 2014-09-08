@@ -1,5 +1,3 @@
-<!--Let's get some Dart going in this bitch-->
-<?php // die(var_dump($homework)); ?>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">Assignment profile</h3>
@@ -86,18 +84,18 @@
           
             Select a file to hand in..<br/><br/>
             
-            <form method="POST" enctype="multipart/form-data"> <!--DISABLED FOR TESTING-->
-                <input name="homework" class="btn-primary" type="file" title="Select a file to hand in" required />
+            <form method="POST" enctype="multipart/form-data">
+                <input id="work" name="homework" class="btn-primary" type="file" title="Select a file to hand in" required />
                 <br/><br/>
-                <input name="submit_homework" class='btn btn-primary' type="submit" value="Upload" />
-            <!--</form>-->
+                <input id='upload-button' name="submit_homework" class='btn btn-primary' type="submit" value="Upload" />
+            </form>
             
         </div>
       </div>
       
       <?php else: ?>
       
-        <a id='upload_button' href="<?=base_url()?>/assets/uploads/<?=$homework["file_source"];?>" target="_blank">
+        <a href="<?=base_url()?>/assets/uploads/<?=$homework["file_source"];?>" target="_blank">
         <button class="btn btn-primary">View homework</button>
         </a>
       
@@ -120,3 +118,20 @@ $('.file-inputs').bootstrapFileInput();
 </script>
 <!--<script src='<?=base_url();?>assets/dart/build/web/upload_handling.dart.js'></script>
 <script type='application/dart' src='<?=base_url();?>assets/dart/build/web/packages/browser/dart.js'></script>-->
+<script>
+$(document).ready(function() {
+
+    var work = document.getElementById("work");
+
+    $("#upload-button").click(function() {
+        
+        if(typeof work.value !== undefined && work.value !== null && work.value != "") {
+        
+            $("#upload-button").fadeOut(100); 
+       
+        }
+        
+    });
+    
+});
+</script>
