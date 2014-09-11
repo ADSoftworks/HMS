@@ -1,5 +1,5 @@
 #Max file size.
-php_value upload_max_filesize 1M
+php_value upload_max_filesize 1000M
 
 #MAKE SURE THIS VALUE IS A HIGH ONE BECAUSE
 #WHEN THIS ONE IS A LOW VALUE IT /WILL NOT/ SHOW AN ERROR
