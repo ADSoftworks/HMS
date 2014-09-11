@@ -2,6 +2,8 @@
 
 class Admin extends CI_Controller {
 
+    private $filesizelimit;
+    
     function __construct() {
         
         parent::__construct();
@@ -10,12 +12,16 @@ class Admin extends CI_Controller {
         
         $this->load->model("User_model");
         $this->load->model("Group_model");
+        $this->load->model("Admin_model");
         
     }
     
     public function index($page = "admin_panel") {
         
         $this->controls();
+        
+        $this->filesizelimit = $this->Admin_model->getFileSizeLimit();
+        
         $this->page($page);
         
     }
@@ -60,6 +66,17 @@ class Admin extends CI_Controller {
             
         }
         
+//        if(isset($_POST["submit_filesizelimit"])) {
+//            
+//            $filesizelimit = $_POST["param_filesizelimit"];
+//            
+//            $this->setFileSizeLimit($filesizelimit);
+//            $this->session->set_userdata("warning", "File size limit has been set.");
+//            header("Location: " . base_url() . "index.php/admin");
+//            exit();
+//            
+//        }
+        
         if(isset($_POST["createdocent_submit"])) {
             
             $email = $_POST["param_email"];
@@ -98,6 +115,21 @@ class Admin extends CI_Controller {
         $this->session->set_userdata("warning", "Group successfully deleted.");
         header("Location: " . base_url() . "index.php/admin");
         exit();
+        
+    }
+    
+    public function setFileSizeLimit($param_limit) {
+        
+        if( ! isset($param_limit)) {
+            
+            $this->session->set_userdata("warning", "Please supply a limit to set the file size limit to.");
+            header("Location: " . base_url() . "index.php/admin");
+            exit();
+            
+        }
+        
+        $this->Admin_model->setFileSizeLimit($param_limit);
+        $this->session->set_userdata("warning", "File size limit has been set.");
         
     }
     
@@ -144,9 +176,11 @@ class Admin extends CI_Controller {
             
         } else {
             
-            $this->load->view("templates/header.php");
-            $this->load->view("pages/" . $page . ".php");
-            $this->load->view("templates/footer.php");
+            $data["filesizelimit"] = $this->filesizelimit;
+            
+            $this->load->view("templates/header.php", $data);
+            $this->load->view("pages/" . $page . ".php", $data);
+            $this->load->view("templates/footer.php", $data);
             
         }
         

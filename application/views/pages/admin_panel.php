@@ -251,6 +251,30 @@
         </div>
       </div>
       
+<!--      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Filesize limit</h3>
+        </div>
+        <div class="panel-body">
+          
+            <div class="col-lg-6">
+            
+                <p>This is to set a limit on the size of a file.<br/>
+                if a file is bigger than this limit in MB's it will be rejected<br/>
+                (2056 MB (2 Gigabyte) by default)</p>
+                <form method="POST">
+                <div class="input-group ">
+                    <span class="input-group-addon">MB</span>
+                    <input name="param_filesizelimit" type="number" class="form-control" placeholder="Filesize limit" value="<?=$filesizelimit;?>" >
+                  </div>
+                <br/>
+                <input name="submit_filesizelimit" type="submit" class="form-control btn btn-primary" value="Set limit" />
+                </form>
+            </div>
+            
+        </div>
+      </div>-->
+      
       <!--CONTENT END-->
       
       

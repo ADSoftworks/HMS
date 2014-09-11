@@ -10,6 +10,7 @@ class Student extends CI_controller {
         $this->load->model("Group_model");
         $this->load->model("Assignment_model");
         $this->load->model("Homework_model");
+        $this->load->model("Admin_model");
         
         $this->authenticate();
         
@@ -117,14 +118,19 @@ class Student extends CI_controller {
         //CONTROLS
         if(isset($_POST["submit_homework"])) {
             
+            /**
+             * @TODO CATCH ALL POSSIBLE ERRORS HERE.
+             */
             if($_FILES["homework"]["error"] > 0) {
-
-                $this->session->set_userdata("warning", "FATAL ERROR: " . $_FILES["homework"]["error"]);
-
+                
+                $this->session->set_userdata("warning", "That file is too big!");
+                header("Location: " . base_url() . "index.php/student/assignmentprofile/" . $param_id);
+                exit();
+                
             } else {
-            
+                
                 $forbiddenExtensions = 
-                    array("php", "sql", "sh", "js", "html", 
+                    array("exe", "php", "sql", "sh", "js", "html", 
                     "css", "cs", "asp", "jar", "jsp", "cpp");
 
                 $temp = explode(".", $_FILES["homework"]["name"]);
@@ -178,8 +184,9 @@ class Student extends CI_controller {
                 
                 $user_id = $this->User_model->getIdByEmail($this->session->userdata("email"));
                 
-                $data["assignment"] = $this->Assignment_model->getAssignmentById($param_id);
-                if($data["homework"] = $this->Homework_model->getHomeworkByAssignmentIdAndUserId($param_id, $user_id)) {
+                $data["homework"] = $this->Homework_model->getHomeworkByAssignmentIdAndUserId($param_id, $user_id);
+                
+                if($data["assignment"] = $this->Assignment_model->getAssignmentById($param_id)) {
                 
                     $this->load->view("templates/header.php");
                     $this->load->view("pages/student_assignment_profile.php", $data);
