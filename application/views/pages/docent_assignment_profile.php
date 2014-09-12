@@ -40,7 +40,7 @@
                 <tr>
                 
                     <th>
-                        Email
+                        Name
                     </th>
                     <th>
                         Status
@@ -57,7 +57,7 @@
                 <?php // die(var_dump($h["id"])); ?>
                 <tr>
                 <td>
-                    <?=$h["email"];?>
+                    <?=$h["firstname"];?> <?=$h["lastname"];?>
                 </td>
                 <td>
                     <?php if($h["status"] == "approved"): ?>

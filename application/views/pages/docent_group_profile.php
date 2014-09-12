@@ -63,13 +63,17 @@
             <?php if($members): ?>
             <table class="table">
                 <tr>
-                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Email address</th>
                     <th>Remove from group</th>
                 </tr>
                 <?php foreach($members as $member): ?>
                 <tr>
                     <td>
                         <?php $user = $this->User_model->getUserById($member); ?>
+                        <?=$user["firstname"];?> <?=$user["lastname"];?>
+                    </td>
+                    <td>
                         <?=$user["email"];?>
                     </td>
                     <td>

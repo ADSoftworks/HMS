@@ -54,7 +54,7 @@ class Homework_model extends CI_Model {
     
     public function getAllHomeworkByAssignmentId($param_id) {
         
-        $sql =    "SELECT users.email, homework.status, homework.file_source, homework.id "
+        $sql =    "SELECT users.email, users.firstname, users.lastname, homework.status, homework.file_source, homework.id "
                 . "FROM homework "
                 . "RIGHT  JOIN users ON homework.user_id = users.id "
                 . "WHERE homework.assignment_id = :assignment_id;";

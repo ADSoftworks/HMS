@@ -309,7 +309,7 @@ class User_model extends CI_Model {
     
     public function getAllUsers() {
         
-        $sql =    "SELECT id, email, group_id "
+        $sql =    "SELECT * "
                 . "FROM users;";
         
         $stmt = $this->db->conn_id->prepare($sql);
@@ -351,18 +351,19 @@ class User_model extends CI_Model {
         
     }
     
-    public function updateById($param_id, $param_email, $param_password, $param_group_id) {
+    public function updateById($param_id, $param_email, $firstname, $lastname, $param_group_id) {
         
-        $param_password = sha1($param_password);
+//        $param_password = sha1($param_password);
         
         $sql =    "UPDATE users "
-                . "SET email = :email, password = :password, group_id = :group_id "
+                . "SET email = :email, firstname = :firstname, lastname = :lastname, group_id = :group_id "
                 . "WHERE id = :id "
                 . "LIMIT 1;";
         
         $stmt = $this->db->conn_id->prepare($sql);
         $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
-        $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
+        $stmt->bindParam(":firstname", $firstname, PDO::PARAM_STR);
+        $stmt->bindParam(":lastname", $lastname, PDO::PARAM_STR);
         $stmt->bindParam(":group_id", $param_group_id, PDO::PARAM_INT);
         $stmt->bindParam(":id", $param_id, PDO::PARAM_INT);
         $stmt->execute();

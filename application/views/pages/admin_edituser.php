@@ -20,7 +20,7 @@
     
       <a href="<?php echo base_url() ?>index.php/admin"
       <button type="button" class="btn btn-primary">
-        Terug
+        Back
       </button>
   </a>
      <br/><br/> 
@@ -47,6 +47,22 @@
 --><div class="input-group col-lg-6">
   <span class="input-group-addon">*</span>
   <input name="param_password" type="text" class="form-control" placeholder="Password" value="<?php echo $user["password"] ?>">
+</div>
+    <br/>
+    <strong>
+        Firstname:
+    </strong><!--
+--><div class="input-group col-lg-6">
+  <span class="input-group-addon">Abc</span>
+  <input name="param_firstname" type="text" class="form-control" placeholder="firstname" value="<?php echo $user["firstname"] ?>">
+</div>
+<br/>
+<strong>
+        Lastname:
+    </strong><!--
+--><div class="input-group col-lg-6">
+  <span class="input-group-addon">Abc</span>
+  <input name="param_lastname" type="text" class="form-control" placeholder="lastname" value="<?php echo $user["lastname"] ?>">
 </div>
     <br/>
         <strong>

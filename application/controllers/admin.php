@@ -139,13 +139,21 @@ class Admin extends CI_Controller {
         
         if(isset($_POST["submit_edit"])) {
             
-            $email = $_POST["param_email"];
-            $password = $_POST["param_password"];
-            $group_id = $_POST["param_group_id"];
+            $email      = $_POST["param_email"];
+            $password   = $_POST["param_password"];
+            $group_id   = $_POST["param_group_id"];
+            $firstname  = $_POST["param_firstname"];
+            $lastname   = $_POST["param_lastname"];
             
-            $this->User_model->updateById($param_id, $email, $password, $group_id);
+            $id = $this->User_model->getIdByEmail($email);
+            $user = $this->User_model->getUserById($id);
             
-            $this->session->set_userdata("warning", "Accounts edited!");
+            if($user["password"] != $password) 
+                $this->User_model->changePasswordByEmail($email, $password);
+                
+                $this->User_model->updateById($param_id, $email, $firstname, $lastname, $group_id);
+                $this->session->set_userdata("warning", "Accounts edited!");
+            
             
         }
         

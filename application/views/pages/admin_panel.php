@@ -71,6 +71,9 @@
               Email address
           </th>
           <th>
+              Naam
+          </th>
+          <th>
               User groep
           </th>
           <th>
@@ -95,6 +98,10 @@
           </td>
           
           <td>
+              <?=$user["firstname"] . " " . $user["lastname"];?>
+          </td>
+          
+          <td>
               <?php
               switch($user["group_id"]) {
                   
@@ -103,7 +110,7 @@
                       break;
                   
                   case 1:
-                      echo "Docent";
+                      echo "Teacher";
                       break;
                   
               }

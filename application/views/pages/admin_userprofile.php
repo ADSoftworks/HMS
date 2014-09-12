@@ -29,6 +29,12 @@
                     Password (Encrypted)
                 </th>
                 <th>
+                    Firstname
+                </th>
+                <th>
+                    Lastname
+                </th>
+                <th>
                     User group
                 </th>
                 <th>
@@ -48,6 +54,12 @@
                 </td>
                 <td>
                     <?=$user["password"];?>
+                </td>
+                <td>
+                    <?=$user["firstname"];?>
+                </td>
+                <td>
+                    <?=$user["lastname"];?>
                 </td>
                 <td>
                     <?php 
