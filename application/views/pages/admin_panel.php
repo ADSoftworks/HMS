@@ -231,19 +231,18 @@
             Enter an email address and password for the new teacher account.
             <br/><br/>
             <div class="col-lg-6">
-            <div class="input-group">
-            <span class="input-group-addon">@</span>
+            <input name="param_firstname" type="text" class="form-control" placeholder="Firstname" required />
+            <br/>
+            <input name="param_lastname" type="text" class="form-control" placeholder="Lastname" required />
+            <br/>
             <input name="param_email" type="email" class="form-control" placeholder="Email adres" required>
+            <br/>
+            <input name="param_password" type="text" class="form-control" placeholder="Wachtwoord" required>
+              <br/>
+              <!--<span class="input-group-btn">-->
+                <input name="createdocent_submit" class="btn btn-primary" type="submit" value="Aanmaken" />
+              <!--</span>-->
             </div>
-            </div>
-            <br/><br/><br/>
-            <div class="col-lg-6">
-            <div class="input-group">
-              <input name="param_password" type="text" class="form-control" placeholder="Wachtwoord" required>
-              <span class="input-group-btn">
-                <input name="createdocent_submit" class="btn btn-default" type="submit" value="Aanmaken" />
-              </span>
-            </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->
             
           </form>

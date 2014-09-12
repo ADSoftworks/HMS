@@ -59,7 +59,7 @@ class Login extends CI_Controller {
             $firstname              = $_POST["param_firstname"];
             $lastname               = $_POST["param_lastname"];
             
-            $this->User_model->register($email, $password, $firstname, $lastname, $password_confirmation, 0);
+            $this->User_model->register($email, $password, $password_confirmation, $firstname, $lastname, 0);
             
             header("Location: " . base_url() . "index.php/login");
             exit();

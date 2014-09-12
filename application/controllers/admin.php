@@ -79,10 +79,12 @@ class Admin extends CI_Controller {
         
         if(isset($_POST["createdocent_submit"])) {
             
-            $email = $_POST["param_email"];
-            $password = $_POST["param_password"];
+            $email      = $_POST["param_email"];
+            $password   = $_POST["param_password"];
+            $firstname  = $_POST["param_firstname"];
+            $lastname   = $_POST["param_lastname"];
             
-            $this->User_model->register($email, $password, $password, 1);
+            $this->User_model->register($email, $password, $password, $firstname, $lastname, 1);
             
         }
         

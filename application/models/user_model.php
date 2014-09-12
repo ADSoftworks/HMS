@@ -87,7 +87,7 @@ class User_model extends CI_Model {
                     
                 } else if($result["group_id"] == 1) {
                     
-                    $this->session->set_userdata("warning", "Welcome docent!");
+                    $this->session->set_userdata("warning", "Welcome teacher!");
                     header("Location: " . base_url() . "index.php/docent");
                     exit();
                     
@@ -259,7 +259,7 @@ class User_model extends CI_Model {
      * @param String $password_confirmation
      * @param int $group_id
      */
-    public function register($email, $password, $firstname, $lastname, $password_confirmation, $group_id) {
+    public function register($email, $password, $password_confirmation, $firstname, $lastname, $group_id) {
         
         if(isset($email) && 
            isset($firstname) &&
