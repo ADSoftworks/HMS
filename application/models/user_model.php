@@ -249,15 +249,21 @@ class User_model extends CI_Model {
     }
     
     /**
+     * 
      * Register a user into the database.
      * 
-     * @param type String $email
-     * @param type String $password
-     * @param type String $password_confirmation
+     * @param String $email
+     * @param String $password
+     * @param String $firstname
+     * @param String $lastname
+     * @param String $password_confirmation
+     * @param int $group_id
      */
-    public function register($email, $password, $password_confirmation, $group_id) {
+    public function register($email, $password, $firstname, $lastname, $password_confirmation, $group_id) {
         
         if(isset($email) && 
+           isset($firstname) &&
+           isset($lastname) &&
            isset($password) &&
            isset($password_confirmation) &&
            isset($group_id)) {
@@ -280,12 +286,14 @@ class User_model extends CI_Model {
                     $password = null;
                     $password_confirmation = null;
 
-                    $sql =    "INSERT INTO users(email, password, group_id)"
-                            . "VALUES(:email, :password, :group_id);";
+                    $sql =    "INSERT INTO users(email, password, firstname, lastname, group_id)"
+                            . "VALUES(:email, :password, :firstname, :lastname, :group_id);";
 
                     $stmt = $this->db->conn_id->prepare($sql);
                     $stmt->bindParam(":email", $email, PDO::PARAM_STR);
                     $stmt->bindParam(":password", $encrypted_password, PDO::PARAM_STR);
+                    $stmt->bindParam(":firstname", $firstname, PDO::PARAM_STR);
+                    $stmt->bindParam(":lastname", $lastname, PDO::PARAM_STR);
                     $stmt->bindParam(":group_id", $group_id, PDO::PARAM_INT);
                     $stmt->execute();
 
