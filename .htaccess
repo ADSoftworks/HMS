@@ -6,3 +6,7 @@ php_value upload_max_filesize 1000M
 #WHEN A FILE IS TOO BIG BUT JUST STRAIGHT UP IGNORE IT.
 #SET THIS TO A SIZE THAT IS SO HIGH YOU DO NOT EVEN WANT TO TRY TO PROCESS IT.
 php_value post_max_size 100000M
+
+#ERROR LOGGING
+php_flag log_errors Off
+php_value error_log error.log
