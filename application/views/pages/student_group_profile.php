@@ -21,6 +21,13 @@
       </button>
       </a>
       
+      <?php 
+      $theteacher = $this->User_model->getUserById($group["docent_id"]);
+//      die(var_dump($theteacher)); 
+      ?>
+      <br/><br/>
+      <span class='label-primary label'>Teacher: <span class='teacher-name'><b><?=substr($theteacher["firstname"], 0, 1) . ". " . $theteacher["lastname"];?></b></span></span>
+      
       <!--
       
       Do students get group settings?
