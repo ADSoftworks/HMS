@@ -7,6 +7,7 @@
   <div class="panel-body">
       
       <form method="POST">
+          
           <div class="input-group input-group">
             <span class="input-group-addon">@</span>
             <input name="param_email" type="email" class="form-control" placeholder="Email address" required>
@@ -22,9 +23,9 @@
               </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->
+      </form>
         </div><!-- /.row -->
           
-      </form>
       
           <p id="orclickhere">
               <!--<a href="?c=studentlogin&m=index&a=student_register">-->
@@ -39,4 +40,4 @@
           </p>
           
   </div>
-</div>
+<!--</div>-->

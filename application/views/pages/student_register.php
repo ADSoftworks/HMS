@@ -11,12 +11,15 @@
             <span class="input-group-addon">@</span>
             <input name="param_email" type="email" class="form-control" placeholder="Email address" required/>
           </div>
+          <br/>
+
+              <input name="param_firstname" type="text" class="form-control" placeholder="Firstname" required />
+              <br/>
+              <input name="param_lastname" type="text" class="form-control" placeholder="Lastname" required />
           
           <br/>
           
-          <div class="input-group input-group">
             <input name="param_password" type="password" class="form-control" placeholder="Password" required/>
-          </div>
           
           <br/>
           
@@ -28,9 +31,9 @@
               </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->
+      </form>
         </div><!-- /.row -->
           
-      </form>
           <p id="orclickhere">
               <!--<a href="?c=studentlogin&m=index&a=student_login">-->
               <a href="<?=base_url()?>index.php/login">
@@ -39,4 +42,4 @@
           </p>
       
   </div>
-</div>
+<!--</div>-->
