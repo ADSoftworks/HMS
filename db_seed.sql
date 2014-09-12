@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 11 sep 2014 om 14:03
+-- Genereertijd: 12 sep 2014 om 13:36
 -- Serverversie: 5.6.12-log
 -- PHP-versie: 5.4.12
 
@@ -34,10 +34,7 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   `description` longtext NOT NULL,
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
-
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
 -- Tabelstructuur voor tabel `groups`
@@ -51,10 +48,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `student_ids` longtext,
   `code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
-
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
 -- Tabelstructuur voor tabel `homework`
@@ -68,9 +62,7 @@ CREATE TABLE IF NOT EXISTS `homework` (
   `group_id` int(11) NOT NULL,
   `assignment_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
 -- Tabelstructuur voor tabel `users`
@@ -79,11 +71,12 @@ CREATE TABLE IF NOT EXISTS `homework` (
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL DEFAULT '0',
+  `firstname` varchar(255) DEFAULT NULL,
+  `lastname` int(255) DEFAULT NULL,
   `email` varchar(125) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
-
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
