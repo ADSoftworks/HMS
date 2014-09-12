@@ -8,5 +8,5 @@ php_value upload_max_filesize 1000M
 php_value post_max_size 100000M
 
 #ERROR LOGGING
-php_flag log_errors Off
+php_flag log_errors On
 php_value error_log error.log
