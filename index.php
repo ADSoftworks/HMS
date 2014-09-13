@@ -49,7 +49,7 @@ define("MASTER_EMAIL", "admin@hms.com");
 
 define("TITLE", "HMS");
 
-define("WEBSITE_URL", "http://localhost/bob_dev/Project-Falcon-Storm");
+define("WEBSITE_URL", "http://localhost/Project-Falcon-Storm");
 
 define("USERNAME", "root");
 define("PASSWORD", "");

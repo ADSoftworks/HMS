@@ -17,6 +17,10 @@
               <br/>
               <input name="param_lastname" type="text" class="form-control" placeholder="Lastname" required />
           
+              <br/>
+              
+              <input name="param_grade" type="number" class="form-control" placeholder="Grade" required />
+              
           <br/>
           
             <input name="param_password" type="password" class="form-control" placeholder="Password" required/>
