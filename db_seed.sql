@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Machine: localhost
--- Genereertijd: 12 sep 2014 om 13:36
--- Serverversie: 5.6.12-log
--- PHP-versie: 5.4.12
+-- Host: 127.0.0.1
+-- Generation Time: Sep 13, 2014 at 03:58 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,15 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Databank: `homework`
+-- Database: `homework`
 --
-CREATE DATABASE IF NOT EXISTS `homework` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `homework`;
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `assignments`
+-- Table structure for table `assignments`
 --
 
 CREATE TABLE IF NOT EXISTS `assignments` (
@@ -34,10 +32,12 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   `description` longtext NOT NULL,
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+
+-- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `groups`
+-- Table structure for table `groups`
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
@@ -48,10 +48,12 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `student_ids` longtext,
   `code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+
+-- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `homework`
+-- Table structure for table `homework`
 --
 
 CREATE TABLE IF NOT EXISTS `homework` (
@@ -62,21 +64,25 @@ CREATE TABLE IF NOT EXISTS `homework` (
   `group_id` int(11) NOT NULL,
   `assignment_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+
+-- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL DEFAULT '0',
   `firstname` varchar(255) DEFAULT NULL,
-  `lastname` int(255) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `grade` int(11) DEFAULT NULL,
   `email` varchar(125) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
