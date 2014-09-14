@@ -16,3 +16,22 @@
     color: #000;
     
 }
+
+#support-div {
+    
+    width: 80%;
+    /*height: 10px;*/
+    display: box;
+    /*background-color: red;*/
+    /*margin-right: 5px;*/
+    
+}
+
+#support-link {
+    
+    position: absolute;
+    margin-left: 70vw;
+    margin-top: 15px;
+    cursor: pointer;
+    
+}

@@ -1,6 +1,5 @@
       </div>
       <!--content end-->
-
     </div><!-- /.container -->
 
 

@@ -37,6 +37,7 @@
             <!--<span class="icon-bar"></span>-->
           <!--</button>-->
           <a class="navbar-brand"><?=TITLE?></a>
+          
         </div>
         <div class="">
           <ul class="nav navbar-nav">
@@ -45,6 +46,11 @@
             <!--<li><a href="#contact">Contact</a></li>-->
           </ul>
         </div><!--/.nav-collapse -->
+        
+        <!--<div id="support-div">-->
+          <a id="support-link" href="https://github.com/bobdesaunois/Project-Falcon-Storm/issues">Support</a>
+          <!--</div>-->
+        
       </div>
     </div>
 
