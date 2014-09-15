@@ -84,7 +84,7 @@ class Admin extends CI_Controller {
             $firstname  = $_POST["param_firstname"];
             $lastname   = $_POST["param_lastname"];
             
-            $this->User_model->register($email, $password, $password, $firstname, $lastname, 1);
+            $this->User_model->register($email, $password, $password, $firstname, $lastname, 1, 0);
             
         }
         
