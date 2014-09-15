@@ -49,7 +49,7 @@
                         Download
                     </th>
                     <th>
-                        Acties
+                        Actions
                     </th>
                 
                 </tr>
