@@ -36,7 +36,7 @@
             <div class="input-group">
               <input name="param_groupcode" type="text" class="form-control" placeholder="Groupcode" required>
               <span class="input-group-btn">
-                <input name="submit_joingroup" class="btn btn-default" type="submit" value="Join" />
+                <input name="submit_joingroup" class="btn btn-primary" type="submit" value="Join" />
               </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->

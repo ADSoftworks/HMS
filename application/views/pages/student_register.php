@@ -31,7 +31,7 @@
             <div class="input-group" id="password">
               <input name="param_password_confirmation" type="password" class="form-control" placeholder="Password again" required/>
               <span class="input-group-btn">
-                  <input name="submit_register" class="btn btn-default" type="submit" value="Register" />
+                  <input name="submit_register" class="btn btn-primary" type="submit" value="Register" />
               </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->

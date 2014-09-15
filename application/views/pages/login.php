@@ -19,7 +19,7 @@
             <div class="input-group" id="password">
               <input name="param_password" type="password" class="form-control" placeholder="Password" required>
               <span class="input-group-btn">
-                  <input name="submit_login" class="btn btn-default" type="submit" value="Login" />
+                  <input name="submit_login" class="btn btn-primary" type="submit" value="Login" />
               </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->

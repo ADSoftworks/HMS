@@ -28,7 +28,7 @@
         <div class="input-group">
           <input name="param_email" type="text" class="form-control" placeholder="Email adres" required/>
           <span class="input-group-btn">
-            <input name="submit_search" class="btn btn-default" type="submit" 
+            <input name="submit_search" class="btn btn-primary" type="submit" 
                    value="Profiel ophalen" />
           </span>
         </div><!-- /input-group -->

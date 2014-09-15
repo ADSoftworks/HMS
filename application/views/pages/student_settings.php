@@ -17,14 +17,14 @@
           
             <form method="POST">
             
-            <div class="col-lg-5">
+            <div class="col-lg-6">
             <div class="input-group">
               <span class="input-group-addon">*</span>
               <input name="param_oldpassword" type="password" class="form-control" placeholder="Old password" required>
             </div>
             </div>
             <br/><br/><br/>
-            <div class="col-lg-5">
+            <div class="col-lg-6">
             <div class="input-group">
               <input name="param_newpassword" type="password" class="form-control" placeholder="New password" required>
               <span class="input-group-btn">

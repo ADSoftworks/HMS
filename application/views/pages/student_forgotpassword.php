@@ -17,7 +17,7 @@
             <div class="input-group">
               <input name="param_email" type="email" class="form-control" placeholder="Email address" required>
               <span class="input-group-btn">
-                <input name="submit_forgotpassword" class="btn btn-default" type="submit" value="Send new password">
+                <input name="submit_forgotpassword" class="btn btn-primary" type="submit" value="Send new password">
               </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-6 -->
