@@ -71,10 +71,10 @@
               Email address
           </th>
           <th>
-              Naam
+              Name
           </th>
           <th>
-              User groep
+              User group
           </th>
           <th>
               Edit
@@ -250,9 +250,9 @@
                 <input name="createdocent_submit" class="btn btn-primary" type="submit" value="Aanmaken" />
               <!--</span>-->
             </div>
+          </form>
           </div><!-- /.col-lg-6 -->
             
-          </form>
           
         </div>
       </div>
