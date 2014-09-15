@@ -65,6 +65,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Email address</th>
+                    <th>Grade</th>
                     <th>Remove from group</th>
                 </tr>
                 <?php foreach($members as $member): ?>
@@ -75,6 +76,9 @@
                     </td>
                     <td>
                         <?=$user["email"];?>
+                    </td>
+                    <td>
+                        <?=$user["grade"];?>
                     </td>
                     <td>
                         <a href="<?=base_url();?>index.php/docent/deletestudentfromgroup/<?=$group["id"];?>/<?=$user["id"];?>">

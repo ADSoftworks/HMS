@@ -43,6 +43,9 @@
                         Name
                     </th>
                     <th>
+                        Grade
+                    </th>
+                    <th>
                         Status
                     </th>
                     <th>
@@ -58,6 +61,9 @@
                 <tr>
                 <td>
                     <?=$h["firstname"];?> <?=$h["lastname"];?>
+                </td>
+                <td>
+                    <?=$h["grade"];?>
                 </td>
                 <td>
                     <?php if($h["status"] == "approved"): ?>
