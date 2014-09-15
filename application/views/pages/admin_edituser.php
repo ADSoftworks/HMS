@@ -18,11 +18,9 @@
   </div>
   <div class="panel-body">
     
-      <a href="<?php echo base_url() ?>index.php/admin"
-      <button type="button" class="btn btn-primary">
+      <a class="btn btn-primary" href="<?php echo base_url() ?>index.php/admin">
         Back
-      </button>
-  </a>
+        </a>
      <br/><br/> 
     <strong>
         ID:
@@ -34,11 +32,11 @@
       </div>
     <br/>
     <strong>
-        Email:
+        Email address:
     </strong>
     <div class="input-group col-lg-6">
   <span class="input-group-addon">@</span>
-  <input name="param_email" type="email" class="form-control" placeholder="Email" value="<?php echo $user["email"] ?>" required>
+  <input name="param_email" type="email" class="form-control" placeholder="Email" value="<?php echo $user["email"]; ?>" required>
 </div>
     <br/>
     <strong>
@@ -46,7 +44,7 @@
     </strong><!--
 --><div class="input-group col-lg-6">
   <span class="input-group-addon">*</span>
-  <input name="param_password" type="text" class="form-control" placeholder="Password" value="<?php echo $user["password"] ?>">
+  <input name="param_password" type="text" class="form-control" placeholder="Password" value="<?php echo $user["password"]; ?>">
 </div>
     <br/>
     <strong>
@@ -54,7 +52,7 @@
     </strong><!--
 --><div class="input-group col-lg-6">
   <span class="input-group-addon">Abc</span>
-  <input name="param_firstname" type="text" class="form-control" placeholder="firstname" value="<?php echo $user["firstname"] ?>">
+  <input name="param_firstname" type="text" class="form-control" placeholder="firstname" value="<?php echo $user["firstname"]; ?>">
 </div>
 <br/>
 <strong>
@@ -62,11 +60,17 @@
     </strong><!--
 --><div class="input-group col-lg-6">
   <span class="input-group-addon">Abc</span>
-  <input name="param_lastname" type="text" class="form-control" placeholder="lastname" value="<?php echo $user["lastname"] ?>">
+  <input name="param_lastname" type="text" class="form-control" placeholder="lastname" value="<?php echo $user["lastname"]; ?>">
 </div>
-    <br/>
+<br/>
+<div class="input-group col-lg-6">
+<strong>Grade: </strong>
+<input name="param_grade" type="number" class="form-control" placeholder="Grade" value="<?=$user["grade"];?>">
+</div>
+<br/>
+    
         <strong>
-        User groep:
+        User group:
     </strong>
 <div class="input-group col-lg-6">
 <!--  <span class="input-group-addon">#</span>
@@ -84,7 +88,7 @@
     <input name="submit_edit" type="submit" class="btn btn-primary" 
            value="Edit" />
     
-</form>
 
   </div>
 </div>
+</form>

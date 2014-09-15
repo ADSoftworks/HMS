@@ -144,6 +144,7 @@ class Admin extends CI_Controller {
             $group_id   = $_POST["param_group_id"];
             $firstname  = $_POST["param_firstname"];
             $lastname   = $_POST["param_lastname"];
+            $grade      = $_POST["param_grade"];
             
             $id = $this->User_model->getIdByEmail($email);
             $user = $this->User_model->getUserById($id);
@@ -151,8 +152,8 @@ class Admin extends CI_Controller {
             if($user["password"] != $password) 
                 $this->User_model->changePasswordByEmail($email, $password);
                 
-                $this->User_model->updateById($param_id, $email, $firstname, $lastname, $group_id);
-                $this->session->set_userdata("warning", "Accounts edited!");
+                $this->User_model->updateById($param_id, $email, $firstname, $lastname, $group_id, $grade);
+                $this->session->set_userdata("warning", "Account edited!");
             
             
         }

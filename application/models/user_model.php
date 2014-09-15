@@ -363,12 +363,28 @@ class User_model extends CI_Model {
         
     }
     
-    public function updateById($param_id, $param_email, $firstname, $lastname, $param_group_id) {
-        
-//        $param_password = sha1($param_password);
+    public function updateGradeById($param_id, $param_grade) {
         
         $sql =    "UPDATE users "
-                . "SET email = :email, firstname = :firstname, lastname = :lastname, group_id = :group_id "
+                . "SET grade = :grade "
+                . "WHERE id = :id "
+                . "LIMIT 1;";
+        
+        $stmt = $this->db->conn_id->prepare($sql);
+        $stmt->bindParam(":grade", $param_grade, PDO::PARAM_INT);
+        $stmt->bindParam(":id", $param_id, PDO::PARAM_INT);
+        $stmt->execute();
+        
+    }
+    
+    public function updateById($param_id, $param_email, $firstname, $lastname, $param_group_id, $param_grade) {
+        
+        //capitalize first and lastname
+        $firstname  = ucfirst($firstname);
+        $lastname   = ucfirst($lastname);
+        
+        $sql =    "UPDATE users "
+                . "SET email = :email, firstname = :firstname, lastname = :lastname, group_id = :group_id, grade = :grade "
                 . "WHERE id = :id "
                 . "LIMIT 1;";
         
@@ -378,6 +394,7 @@ class User_model extends CI_Model {
         $stmt->bindParam(":lastname", $lastname, PDO::PARAM_STR);
         $stmt->bindParam(":group_id", $param_group_id, PDO::PARAM_INT);
         $stmt->bindParam(":id", $param_id, PDO::PARAM_INT);
+        $stmt->bindParam(":grade", $param_grade, PDO::PARAM_INT);
         $stmt->execute();
         
     }

@@ -41,6 +41,19 @@ class Student extends CI_controller {
             
         }
         
+        if(isset($_POST["submit_grade"])) {
+            
+            $id     = $this->User_model->getIdByEmail($this->session->userdata("email"));
+            $grade  = $_POST["param_grade"];
+            
+            $this->User_model->updateGradeById($id, $grade);
+            $this->session->set_userdata("warning", "Your grade has been changed.");
+            header("Location: " . base_url() . "index.php/student/index/student_settings");
+            exit(0);
+            
+            
+        }
+        
         if(isset($_POST["submit_joingroup"])) {
             
             $groupcode = $_POST["param_groupcode"];
@@ -231,8 +244,14 @@ class Student extends CI_controller {
                 $this->show_404();
         else {
             
+            
+            $id = $this->User_model->getIdByEmail($this->session->userdata("email"));
+            $user = $this->User_model->getUserById($id);
+            
+            $data["user"] = $user;
+            
             $this->load->view("templates/header.php");
-            $this->load->view("pages/" . $page . ".php");
+            $this->load->view("pages/" . $page . ".php", $data);
             $this->load->view("templates/footer.php");
         
         }

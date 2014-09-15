@@ -74,6 +74,9 @@
               Name
           </th>
           <th>
+              Grade
+          </th>
+          <th>
               User group
           </th>
           <th>
@@ -99,6 +102,10 @@
           
           <td>
               <?=$user["firstname"] . " " . $user["lastname"];?>
+          </td>
+          
+          <td>
+              <?=$user["grade"];?>
           </td>
           
           <td>
