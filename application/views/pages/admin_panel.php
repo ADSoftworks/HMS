@@ -16,11 +16,11 @@
       
       <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Profiel ophalen met email</h3>
+    <h3 class="panel-title">Fetch a profile by email</h3>
   </div>
   <div class="panel-body">
     
-      <p>Haal een gebruikers profiel op via een email adres.</p>
+      <p>Fetch a user profile through their email address.</p>
       
       <form method="POST">
       
@@ -42,9 +42,9 @@
       
 <div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading">Alle actieve gebruikers</div>
+  <div class="panel-heading">All active users</div>
   <div class="panel-body">
-    <p>Een overzicht van alle actieve gebruikers.</p>
+    <p>An overview of all active users.</p>
   </div>
 
   <!-- Table -->
