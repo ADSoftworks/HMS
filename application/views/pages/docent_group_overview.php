@@ -39,13 +39,13 @@
                         <div class="input-group">
                         <span class="input-group-addon">Abc</span>
                         <input name="param_groep_name" type="text" class="form-control" 
-                               placeholder="Groep naam" required>
+                               placeholder="Group description" required>
                         </div>
                         <br/>
                         <div class="input-group">
                             <span class="input-group-addon">Abc</span>
                             <textarea name="param_groep_description" class="form-control" 
-                                      placeholder="Korte beschrijving" required></textarea>
+                                      placeholder="Short description" required></textarea>
                         </div>
                         <br/>
                         <input name="submit_groep" type="submit" class="btn btn-primary" value="Create group" />

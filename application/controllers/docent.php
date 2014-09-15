@@ -74,6 +74,20 @@ class Docent extends CI_Controller {
             
         }
         
+        if(isset($_POST["submit_editgroup"])) {
+            
+            die("EDIT GROUP");
+            
+            $name           = $_POST["param_group_name"];
+            $description    = $_POST["param_group_description"];
+            
+//            die(var_dump($param_id));
+            
+            $this->Group_model->updateNameAndDescriptionById($param_id, $name, $description);
+            $this->session->set_userdata("warning", "Group successfully edited.");
+            
+        }
+        
     }
     
     public function logout() {

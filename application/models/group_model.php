@@ -24,6 +24,21 @@ class Group_model extends CI_Model {
         
     }
     
+    public function updateNameAndDescriptionById($param_id, $param_name, $param_description) {
+        
+        $sql =    "UPDATE group "
+                . "SET name = : name, description = :description "
+                . "WHERE id = :id "
+                . "LIMIT 1;";
+        
+        $stmt = $this->db->conn_id->prepare($sql);
+        $stmt->bindParam(":name", $param_name, PDO::PARAM_STR);
+        $stmt->bindParam(":description", $param_description, PDO::PARAM_STR);
+        $stmt->bindParam(":id", $param_id, PDO::PARAM_INT);
+        $stmt->execute();
+        
+    }
+    
     public function create($param_name, $param_description) {
         
         $author_id = $this->User_model->getId();
