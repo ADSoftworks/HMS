@@ -279,6 +279,10 @@ class User_model extends CI_Model {
                     $this->session->set_userdata("warning", "Account already exists.");
 
                 } else {
+                    
+                    //capitalize the first letter of the names
+                    $firstname  = ucfirst($firstname);
+                    $lastname   = ucfirst($lastname);
 
                     $encrypted_password = sha1($password);
 
