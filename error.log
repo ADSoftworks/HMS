@@ -2,3 +2,33 @@
 # Here be explosions #
 ######################
 
+[18-Sep-2014 21:01:07 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\wamp\www\Project-Falcon-Storm\system\database\drivers\pdo\pdo_driver.php:114
+Stack trace:
+#0 C:\wamp\www\Project-Falcon-Storm\system\database\drivers\pdo\pdo_driver.php(114): PDO->__construct('mysql:host=loca...', 'root', 'toor', Array)
+#1 C:\wamp\www\Project-Falcon-Storm\system\database\DB_driver.php(115): CI_DB_pdo_driver->db_pconnect()
+#2 C:\wamp\www\Project-Falcon-Storm\system\database\DB.php(148): CI_DB_driver->initialize()
+#3 C:\wamp\www\Project-Falcon-Storm\system\core\Loader.php(346): DB('', NULL)
+#4 C:\wamp\www\Project-Falcon-Storm\system\core\Loader.php(1171): CI_Loader->database()
+#5 C:\wamp\www\Project-Falcon-Storm\system\core\Loader.php(152): CI_Loader->_ci_autoloader()
+#6 C:\wamp\www\Project-Falcon-Storm\system\core\Controller.php(51): CI_Loader->initialize()
+#7 C:\wamp\www\Project-Falcon-Storm\application\controllers\student.php(7): CI_Controller->__const in C:\wamp\www\Project-Falcon-Storm\system\database\drivers\pdo\pdo_driver.php on line 114
+[18-Sep-2014 21:01:19 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\wamp\www\Project-Falcon-Storm\system\database\drivers\pdo\pdo_driver.php:114
+Stack trace:
+#0 C:\wamp\www\Project-Falcon-Storm\system\database\drivers\pdo\pdo_driver.php(114): PDO->__construct('mysql:host=loca...', 'root', 'toor', Array)
+#1 C:\wamp\www\Project-Falcon-Storm\system\database\DB_driver.php(115): CI_DB_pdo_driver->db_pconnect()
+#2 C:\wamp\www\Project-Falcon-Storm\system\database\DB.php(148): CI_DB_driver->initialize()
+#3 C:\wamp\www\Project-Falcon-Storm\system\core\Loader.php(346): DB('', NULL)
+#4 C:\wamp\www\Project-Falcon-Storm\system\core\Loader.php(1171): CI_Loader->database()
+#5 C:\wamp\www\Project-Falcon-Storm\system\core\Loader.php(152): CI_Loader->_ci_autoloader()
+#6 C:\wamp\www\Project-Falcon-Storm\system\core\Controller.php(51): CI_Loader->initialize()
+#7 C:\wamp\www\Project-Falcon-Storm\application\controllers\student.php(7): CI_Controller->__const in C:\wamp\www\Project-Falcon-Storm\system\database\drivers\pdo\pdo_driver.php on line 114
+[18-Sep-2014 21:01:24 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\wamp\www\Project-Falcon-Storm\system\database\drivers\pdo\pdo_driver.php:114
+Stack trace:
+#0 C:\wamp\www\Project-Falcon-Storm\system\database\drivers\pdo\pdo_driver.php(114): PDO->__construct('mysql:host=loca...', 'root', 'toor', Array)
+#1 C:\wamp\www\Project-Falcon-Storm\system\database\DB_driver.php(115): CI_DB_pdo_driver->db_pconnect()
+#2 C:\wamp\www\Project-Falcon-Storm\system\database\DB.php(148): CI_DB_driver->initialize()
+#3 C:\wamp\www\Project-Falcon-Storm\system\core\Loader.php(346): DB('', NULL)
+#4 C:\wamp\www\Project-Falcon-Storm\system\core\Loader.php(1171): CI_Loader->database()
+#5 C:\wamp\www\Project-Falcon-Storm\system\core\Loader.php(152): CI_Loader->_ci_autoloader()
+#6 C:\wamp\www\Project-Falcon-Storm\system\core\Controller.php(51): CI_Loader->initialize()
+#7 C:\wamp\www\Project-Falcon-Storm\application\controllers\login.php(7): CI_Controller->__constru in C:\wamp\www\Project-Falcon-Storm\system\database\drivers\pdo\pdo_driver.php on line 114

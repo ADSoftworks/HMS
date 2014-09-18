@@ -28,6 +28,7 @@ class AdminLogin extends CI_Controller {
             if(sha1($_POST["param_password"]) == sha1(ADMIN_PASSWORD)) {
                 
                 $this->session->set_userdata("admin", "thisisasecret");
+                $this->session->set_userdata("warning", "You're running HMS Version: " . VERSION . " Build: " . BIRD_BUILD);
                 header("Location: " . base_url() . "index.php/admin");
                 exit();
                 
