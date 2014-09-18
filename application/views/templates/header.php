@@ -37,6 +37,7 @@
             <!--<span class="icon-bar"></span>-->
           <!--</button>-->
           <a class="navbar-brand"><?=TITLE?><small style="color: #1d9ce5;">&nbsp;&nbsp;&nbsp;<?=BIRD_BUILD;?></small></a>
+          <a id="support-link" href="https://github.com/bobdesaunois/Project-Falcon-Storm/issues" target="_blank">Support</a>
           
         </div>
         <div class="">
@@ -48,7 +49,6 @@
         </div><!--/.nav-collapse -->
         
         <!--<div id="support-div">-->
-          <a id="support-link" href="https://github.com/bobdesaunois/Project-Falcon-Storm/issues" target="_blank">Support</a>
           <!--</div>-->
         
       </div>
