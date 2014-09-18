@@ -75,23 +75,51 @@ class User_model extends CI_Model {
             
             if($result["password"] == $encrypted_password) {
                 
-                
-                
                 $this->session->set_userdata("email", $result["email"]);
                 
-                if($result["group_id"] == 0) {
+                $truefax = Array("An Akepa is a small Hawaiian bird whose name means “agile”, for they’re commonly found foraging on branches.",
+                    "Weighing in only at 10 grams and being only four inches long they’re amongst the smallest birds in Hawaii.",
+                    "A forest bird, the Akepa is found only in high elevated rainforests.",
+                    "Akepa are known for their unusual cross-bill with the upper overlapping the lower to one side. ",
+                    "James Cook was the first non-polynesian explorer to discover the species on his third voyage. ",
+                    "The Akepa primarily feeds on caterpillars found in leaf buds; which it opens with its specialized bill. ",
+                    "Akepa are a highly endangered species, due to Hawaii’s high rate of invasive species. ",
+                    "The Akepa has three known subspecies. Speculation exists as to whether or not they’re actually distinct species. ",
+                    "Akepa are part of the finch family, specifically a group of honeycreeper native only to Hawaii. ",
+                    "To ensure that unique birds like the Akepa don’t go extinct please support your local wildlife conservation efforts. Awareness can go a long way! ");
                 
-                    $this->session->set_userdata("warning", "Welcome student!");
+                $random = rand(0, count($truefax));
+                
+//                echo $random;
+                
+//                die(var_dump($random));
+                
+                $this->session->set_userdata("warning", "| <strong>Akepa fact: </strong>" . $truefax[$random]);
+                if ($result["group_id"] == 0) {
+                    
                     header("Location: " . base_url() . "index.php/student");
-                    exit();
                     
-                } else if($result["group_id"] == 1) {
+                } else if ($result["group_id"] == 1) {
                     
-                    $this->session->set_userdata("warning", "Welcome teacher!");
                     header("Location: " . base_url() . "index.php/docent");
-                    exit();
                     
                 }
+                
+                exit();
+                
+//                if($result["group_id"] == 0) {
+//                
+//                    $this->session->set_userdata("warning", "Welcome student!");
+//                    header("Location: " . base_url() . "index.php/student");
+//                    exit();
+//                    
+//                } else if($result["group_id"] == 1) {
+//                    
+//                    $this->session->set_userdata("warning", "Welcome teacher!");
+//                    header("Location: " . base_url() . "index.php/docent");
+//                    exit();
+//                    
+//                }
                 
             } else {
                 

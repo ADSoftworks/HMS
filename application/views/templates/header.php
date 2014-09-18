@@ -36,7 +36,7 @@
             <!--<span class="icon-bar"></span>-->
             <!--<span class="icon-bar"></span>-->
           <!--</button>-->
-          <a class="navbar-brand"><?=TITLE?></a>
+          <a class="navbar-brand"><?=TITLE?><small style="color: #1d9ce5;">&nbsp;&nbsp;&nbsp;<?=BIRD_BUILD;?></small></a>
           
         </div>
         <div class="">

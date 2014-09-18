@@ -1,47 +1,16 @@
 <?php
 
-/////////////////////
-//   Patch notes   //
-/////////////////////
 /*
- * ## 1.0.0 ##
- * 
- * - Completed Development stage.
- * 
- * ## end 1.0.0 ##
- * 
- * ## 1.0.1 ##
- * 
- * - Proper configuration
- * 
- * - Fixed bug
- *      : Couldn't delete assignments that did not
- *      : contain any submitted homework.
- * 
- * - Fixed bug
- *      : Title didn't change correctly.
- * 
- * - Found bug (Omitted)
- *      : No sanity checking done or proper redirecting
- *      : when an assignment is deleted by a docent and a student
- *      : still has the assignment profile open.
- *      :
- *      : This bug was omitted since the production environment
- *      : successfully works it's way around it.
- * 
- * - Fixed bug
- *      : Incorrect redirecting when 
- *      : deleting a student from a group.
- * 
- * ## end 1.0.1 ##
+ * VERSION 1.0.0
+ * Angular Akepa
  */
-
 
 ///////////////////////
 //   Configuration   //
 ///////////////////////
 
-define("VERSION", "1.0.1");
+define("VERSION", "1.0.0");
+define("BIRD_BUILD", "Angular Akepa");
 
 define("ADMIN_PASSWORD", "secret");
 
