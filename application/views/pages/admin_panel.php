@@ -26,10 +26,10 @@
       
         <div class="col-lg-6">
         <div class="input-group">
-          <input name="param_email" type="text" class="form-control" placeholder="Email adres" required/>
+          <input name="param_email" type="text" class="form-control" placeholder="Email address" required/>
           <span class="input-group-btn">
             <input name="submit_search" class="btn btn-primary" type="submit" 
-                   value="Profiel ophalen" />
+                   value="Fetch profile" />
           </span>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
@@ -236,7 +236,7 @@
       
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Create docent</h3>
+          <h3 class="panel-title">Create teacher</h3>
         </div>
         <div class="panel-body">
           
@@ -249,12 +249,12 @@
             <br/>
             <input name="param_lastname" type="text" class="form-control" placeholder="Lastname" required />
             <br/>
-            <input name="param_email" type="email" class="form-control" placeholder="Email adres" required>
+            <input name="param_email" type="email" class="form-control" placeholder="Email address" required>
             <br/>
-            <input name="param_password" type="text" class="form-control" placeholder="Wachtwoord" required>
+            <input name="param_password" type="text" class="form-control" placeholder="Password" required>
               <br/>
               <!--<span class="input-group-btn">-->
-                <input name="createdocent_submit" class="btn btn-primary" type="submit" value="Aanmaken" />
+                <input name="createdocent_submit" class="btn btn-primary" type="submit" value="Create" />
               <!--</span>-->
             </div>
           </form>
