@@ -48,7 +48,7 @@
         </div><!--/.nav-collapse -->
         
         <!--<div id="support-div">-->
-          <a id="support-link" href="https://github.com/bobdesaunois/Project-Falcon-Storm/issues">Support</a>
+          <a id="support-link" href="https://github.com/bobdesaunois/Project-Falcon-Storm/issues" target="_blank">Support</a>
           <!--</div>-->
         
       </div>
