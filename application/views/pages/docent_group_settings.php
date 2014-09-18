@@ -14,7 +14,7 @@
       </button>
       <!--</a>-->
       <br/><br/>
-      <div class="panel panel-primary">
+<!--      <div class="panel panel-primary">
           
             <div class="panel-heading">
               <h3 class="panel-title">Edit group</h3>
@@ -45,7 +45,7 @@
                
                 
             </div>
-          </div>
+          </div>-->
           
   </div>
 </div>
