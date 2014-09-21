@@ -2,12 +2,21 @@
 
 class Homework_model extends CI_Model {
 
+    /**
+     * Constructor
+     */
     function __construct() {
         
         parent::__construct();
         
     }
 
+    /**
+     * Updates a group by it's ID.
+     * 
+     * @param int $param_id
+     * @param String $param_status
+     */
     public function updateStatusById($param_id, $param_status) {
         
         $sql =    "UPDATE homework "
@@ -22,6 +31,11 @@ class Homework_model extends CI_Model {
         
     }
     
+    /**
+     * Deletes a group by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function deleteById($param_id) {
         
         $sql =    "DELETE FROM homework "
@@ -34,6 +48,12 @@ class Homework_model extends CI_Model {
         
     }
     
+    /**
+     * Gets homework by it's ID.
+     * 
+     * @param int $param_id
+     * @return Array
+     */
     public function getById($param_id) {
         
         $sql =    "SELECT * "
@@ -52,6 +72,12 @@ class Homework_model extends CI_Model {
             
     }
     
+    /**
+     * Get's all homework by an assignment ID.
+     * 
+     * @param int $param_id
+     * @return Array
+     */
     public function getAllHomeworkByAssignmentId($param_id) {
         
         $sql =    "SELECT users.email, users.grade, users.firstname, users.lastname, homework.status, homework.file_source, homework.id "
@@ -70,6 +96,14 @@ class Homework_model extends CI_Model {
         
     }
     
+    /**
+     * Gets all homework by the assignment and user's id.
+     * This way it's easy to get all homework 
+     * done by a user for an assignment.
+     * 
+     * @param int $param_id
+     * @return Array
+     */
     public function getAllHomeworkByAssignmentIdAndUserId($param_id) {
         
         $sql =    "SELECT users.email, homework.status, homework.file_source, homework.id "
@@ -88,6 +122,15 @@ class Homework_model extends CI_Model {
         
     }
     
+    /**
+     * Gets homework by the assignment, homework's and user's id.
+     * This way it's easy to get homework 
+     * done by a user for an assignment.
+     * 
+     * @param int $param_id
+     * @param int $param_user_id
+     * @return Array
+     */
     public function getHomeworkByAssignmentIdAndUserId($param_id, $param_user_id) {
         
 //        die(var_dump($param_user_id));
@@ -110,6 +153,14 @@ class Homework_model extends CI_Model {
             
     }
     
+    /**
+     * Creates homework.
+     * 
+     * @param String $param_file_source
+     * @param int $param_user_id
+     * @param int $param_group_id
+     * @param int $param_assignment_id
+     */
     public function create($param_file_source, $param_user_id, 
             $param_group_id, $param_assignment_id) {
         

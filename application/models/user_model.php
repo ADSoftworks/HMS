@@ -147,6 +147,12 @@ class User_model extends CI_Model {
         
     }
     
+    /**
+     * Authenticates the current user.
+     * 
+     * @param String $password
+     * @return boolean
+     */
     public function authenticateCurrentUser($password) {
         
         $user = $this->session->userdata("email");
@@ -347,6 +353,11 @@ class User_model extends CI_Model {
     
     }
     
+    /**
+     * Gets all the users.
+     * 
+     * @return Array
+     */
     public function getAllUsers() {
         
         $sql =    "SELECT * "
@@ -357,10 +368,15 @@ class User_model extends CI_Model {
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         
-        return $result;
+        return $result ? $result : false;
         
     }
 
+    /**
+     * Deletes a user by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function deleteById($param_id) {
         
         $sql =    "DELETE FROM users "
@@ -373,6 +389,12 @@ class User_model extends CI_Model {
         
     }
  
+    /**
+     * Gets user by it's ID.
+     * 
+     * @param int $param_id
+     * @return Array
+     */
     public function getUserById($param_id) {
         
         $sql =    "SELECT * "
@@ -391,6 +413,12 @@ class User_model extends CI_Model {
         
     }
     
+    /**
+     * Updates the grades of a user by the user's ID.
+     * 
+     * @param int $param_id
+     * @param int $param_grade
+     */
     public function updateGradeById($param_id, $param_grade) {
         
         $sql =    "UPDATE users "
@@ -405,6 +433,16 @@ class User_model extends CI_Model {
         
     }
     
+    /**
+     * Updates a user by it's ID.
+     * 
+     * @param int $param_id
+     * @param String $param_email
+     * @param String $firstname
+     * @param String $lastname
+     * @param int $param_group_id
+     * @param int $param_grade
+     */
     public function updateById($param_id, $param_email, $firstname, $lastname, $param_group_id, $param_grade) {
         
         //capitalize first and lastname
@@ -427,6 +465,12 @@ class User_model extends CI_Model {
         
     }
 
+    /**
+     * Gets a user's ID by the user's email address.
+     * 
+     * @param String $param_email
+     * @return int
+     */
     public function getIdByEmail($param_email) {
         
         $sql =    "SELECT id "
@@ -445,6 +489,12 @@ class User_model extends CI_Model {
         
     }
     
+    /**
+     * Gets the user that's currently 
+     * logged in by it's email address.
+     * 
+     * @return Array
+     */
     public function getCurrentUser() {
         
         $email = $this->session->userdata("email");

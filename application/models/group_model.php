@@ -1,13 +1,27 @@
 <?php
 
+/**
+ * Group model
+ * 
+ * @author Bob Desaunois <bobdesaunois@gmail.com>
+ */
 class Group_model extends CI_Model {
 
+    /**
+     * Constructor
+     */
     function __construct() {
         
         parent::__construct();
         
     }
     
+    /**
+     * Checks if a group exists by it's name and returns it.
+     * 
+     * @param String $param_name
+     * @return Array
+     */
     private function existsByName($param_name) {
         
         $sql =    "SELECT name "
@@ -24,6 +38,13 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * Update a group's name and description by it's ID.
+     * 
+     * @param int $param_id
+     * @param String $param_name
+     * @param String $param_description
+     */
     public function updateNameAndDescriptionById($param_id, $param_name, $param_description) {
         
         $sql =    "UPDATE group "
@@ -39,6 +60,12 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * Create a group
+     * 
+     * @param String $param_name
+     * @param String $param_description
+     */
     public function create($param_name, $param_description) {
         
         $author_id = $this->User_model->getId();
@@ -61,6 +88,11 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * Delete a group by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function deleteById($param_id) {
         
         $sql =    "DELETE FROM groups "
@@ -80,6 +112,11 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * Gets all groups.
+     * 
+     * @return Array
+     */
     public function getAllGroups() {
         
         $sql =    "SELECT * "
@@ -95,6 +132,12 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * Gets all members of a group by the group ID
+     * 
+     * @param int $param_id
+     * @return Array
+     */
     public function getAllMembersById($param_id) {
         
         $sql =    "SELECT student_ids "
@@ -113,6 +156,12 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * STUDENT ONLY METHOD.
+     * Returns all groups where the STUDENT user is in.
+     * 
+     * @return Array
+     */
     public function getAllGroupsFromUser() {
         
         $email = $this->User_model->getEmail();
@@ -159,6 +208,14 @@ class Group_model extends CI_Model {
         
     }
         
+    /**
+     * DOCENT ONLY METHOD
+     * 
+     * Returns all grpups made by a user
+     * by his ID.
+     * 
+     * @return Array
+     */
     public function getAllAuthoredGroupsFromUser() {
         
         $id = $this->User_model->getId();
@@ -178,6 +235,12 @@ class Group_model extends CI_Model {
         
     }
 
+    /**
+     * Gets a group by it's ID.
+     * 
+     * @param int $param_id
+     * @return Array
+     */
     public function getGroupById($param_id) {
         
         $sql =    "SELECT * "
@@ -195,6 +258,14 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * Checks if a user is a member of a group by it's group id
+     * and the users id.
+     * 
+     * @param int $param_id
+     * @param int $param_user_id
+     * @return boolean
+     */
     public function isMemberOfGroupById($param_id, $param_user_id) {
         
         $sql =    "SELECT student_ids "
@@ -223,6 +294,12 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * Updates the members of a group by the group's ID.
+     * 
+     * @param int $group_id
+     * @param Array $members
+     */
     public function updateMembers($group_id, $members) {
         
         $members = serialize($members);
@@ -239,6 +316,12 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * To leave a group
+     * 
+     * @param int $group_id
+     * @param int $student_id
+     */
     public function leave($group_id, $student_id) {
         
         if( ! $this->isMemberOfGroupById($group_id, $student_id)) {
@@ -260,6 +343,11 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * To join a group by it's group code.
+     * 
+     * @param String $param_code
+     */
     public function join($param_code) {
         
         if($this->existsByCode($param_code)) {
@@ -306,6 +394,12 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * checks if a group exists by it's code.
+     * 
+     * @param String $param_code
+     * @return Array
+     */
     private function existsByCode($param_code) {
         
         $sql =    "SELECT id "
@@ -324,6 +418,12 @@ class Group_model extends CI_Model {
         
     }
     
+    /**
+     * Checks if a room exists by it's ID.
+     * 
+     * @param String $param_code
+     * @return Array
+     */
     private function getByCode($param_code) {
         
         $sql =    "SELECT * "

@@ -1,13 +1,28 @@
 <?php
 
+/**
+ * Assignment model
+ * 
+ * @author Bob Desaunois <bobdesaunois@gmail.com>
+ */
 class Assignment_model extends CI_Model {
 
+    /**
+     * Constructor
+     */
     function __construct() {
         
         parent::__construct();
         
     }
     
+    /**
+     * Creates an assignment
+     * 
+     * @param String $param_title
+     * @param String $param_description
+     * @param int $param_group_id
+     */
     public function create($param_title, $param_description, $param_group_id) {
         
         $sql =    "INSERT INTO assignments(title, description, group_id) "
@@ -21,7 +36,13 @@ class Assignment_model extends CI_Model {
         $stmt->execute();
         
     }
-
+    
+    /**
+     * Gets all assignment from a group by it's Group ID
+     * 
+     * @param int $param_id
+     * @return Array
+     */
     public function getAllAssignmentsFromGroupById($param_id) {
         
         $sql =    "SELECT * "
@@ -39,6 +60,12 @@ class Assignment_model extends CI_Model {
         
     }
     
+    /**
+     * Gets all assignments by their ID's.
+     * 
+     * @param int $param_id
+     * @return Array
+     */
     public function getAssignmentById($param_id) {
         
         $sql =    "SELECT * "
@@ -57,6 +84,11 @@ class Assignment_model extends CI_Model {
         
     }
     
+    /**
+     * Delete an assignment by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function deleteById($param_id) {
         
         $sql =    "DELETE "
