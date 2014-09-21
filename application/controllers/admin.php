@@ -1,9 +1,17 @@
 <?php
 
+/**
+ * Admin Controller
+ * 
+ * @author Bob Desaunois <bobdesaunois@gmail.com>
+ */
 class Admin extends CI_Controller {
 
     private $filesizelimit;
     
+    /**
+     * Constructor
+     */
     function __construct() {
         
         parent::__construct();
@@ -16,16 +24,22 @@ class Admin extends CI_Controller {
         
     }
     
+    /**
+     * Index
+     * 
+     * @param String $page
+     */
     public function index($page = "admin_panel") {
         
         $this->controls();
-        
-        $this->filesizelimit = $this->Admin_model->getFileSizeLimit();
         
         $this->page($page);
         
     }
     
+    /**
+     * Logs the admin out.
+     */
     public function logout() {
         
         $this->session->unset_userdata("admin");
@@ -33,6 +47,9 @@ class Admin extends CI_Controller {
         
     }
     
+    /**
+     * Authenitcates the admin to ensure we're dealing with an admin.
+     */
     private function authenticate() {
         
         if(!$this->session->userdata("admin")) {
@@ -43,10 +60,16 @@ class Admin extends CI_Controller {
         
     }
     
+    /**
+     * Controls
+     */
     private function controls() {
         
         $this->authenticate();
         
+        /*
+         * If Admin searches for an account
+         */
         if(isset($_POST["submit_search"])) {
             
             $email = $_POST["param_email"];
@@ -66,17 +89,9 @@ class Admin extends CI_Controller {
             
         }
         
-//        if(isset($_POST["submit_filesizelimit"])) {
-//            
-//            $filesizelimit = $_POST["param_filesizelimit"];
-//            
-//            $this->setFileSizeLimit($filesizelimit);
-//            $this->session->set_userdata("warning", "File size limit has been set.");
-//            header("Location: " . base_url() . "index.php/admin");
-//            exit();
-//            
-//        }
-        
+        /*
+         * If admin creates a teacher account.
+         */
         if(isset($_POST["createdocent_submit"])) {
             
             $email      = $_POST["param_email"];
@@ -90,6 +105,11 @@ class Admin extends CI_Controller {
         
     }
     
+    /**
+     * Searches for a user by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function search($param_id) {
         
         $user = $this->User_model->getUserById($param_id);
@@ -102,6 +122,11 @@ class Admin extends CI_Controller {
         
     }
     
+    /**
+     * Deletes a user by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function deleteuser($param_id) {
         
         $this->User_model->deleteById($param_id);
@@ -111,6 +136,11 @@ class Admin extends CI_Controller {
         
     }
     
+    /**
+     * Deletes a group by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function deleteGroup($param_id) {
         
         $this->Group_model->deleteById($param_id);
@@ -120,21 +150,11 @@ class Admin extends CI_Controller {
         
     }
     
-    public function setFileSizeLimit($param_limit) {
-        
-        if( ! isset($param_limit)) {
-            
-            $this->session->set_userdata("warning", "Please supply a limit to set the file size limit to.");
-            header("Location: " . base_url() . "index.php/admin");
-            exit();
-            
-        }
-        
-        $this->Admin_model->setFileSizeLimit($param_limit);
-        $this->session->set_userdata("warning", "File size limit has been set.");
-        
-    }
-    
+    /**
+     * Edits a user's information and renders the edit page.
+     * 
+     * @param int $param_id
+     */
     public function edituser($param_id) {
         
         if(isset($_POST["submit_edit"])) {
@@ -166,6 +186,11 @@ class Admin extends CI_Controller {
         
     }
 
+    /**
+     * Renders a page
+     * 
+     * @param String $page
+     */
     public function page($page) {
         
         $allowed_pages = array(

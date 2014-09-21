@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * Login Controller
+ * 
+ * @author Bob Desaunois <bobdesaunois@gmail.com>
+ */
 class Login extends CI_Controller {
 
+    /**
+     * Constructor.
+     */
     function __construct() {
         
         parent::__construct();
@@ -10,6 +18,11 @@ class Login extends CI_Controller {
         
     }
     
+    /**
+     * Index.
+     * 
+     * @param String $page
+     */
     public function index($page = "login") {
 
         $this->controls();
@@ -17,8 +30,14 @@ class Login extends CI_Controller {
         
     }
     
+    /**
+     * Controls.
+     */
     private function controls() {
         
+        /*
+         * Check if user is already logged in.
+         */
         if($this->session->userdata("email")) {
             
             if($this->User_model->isDocent()) {
@@ -34,6 +53,9 @@ class Login extends CI_Controller {
             
         }
         
+        /*
+         * Forgot password
+         */
         if(isset($_POST["submit_forgotpassword"])) {
             
             $email = $_POST["param_email"];
@@ -42,6 +64,9 @@ class Login extends CI_Controller {
             
         }
         
+        /*
+         * Log in
+         */
         if(isset($_POST["submit_login"])) {
             
             $email = $_POST["param_email"];
@@ -51,6 +76,9 @@ class Login extends CI_Controller {
             
         }
         
+        /*
+         * Register
+         */
         if(isset($_POST["submit_register"])) {
             
             $email                  = $_POST["param_email"];
@@ -68,6 +96,11 @@ class Login extends CI_Controller {
         }
     }
     
+    /**
+     * Render an allowed page.
+     * 
+     * @param String $page
+     */
     public function page($page) {
         
         $allowed_pages = Array(

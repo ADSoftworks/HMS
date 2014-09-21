@@ -1,13 +1,26 @@
 <?php
 
+/**
+ * AdminLogin Controller
+ * 
+ * @author Bob Desaunois <bobdesaunois@gmail.com>
+ */
 class AdminLogin extends CI_Controller {
 
+    /**
+     * Constructor.
+     */
     function __construct() {
         
         parent::__construct();
         
     }
     
+    /**
+     * Index.
+     * 
+     * @param String $page
+     */
     public function index($page = "admin_login") {
         
         $this->controls();
@@ -15,14 +28,23 @@ class AdminLogin extends CI_Controller {
         
     }
     
+    /**
+     * Controls
+     */
     private function controls() {
         
+        /*
+         * If logged in as admin, skip this controller.
+         */
         if($this->session->userdata("admin")) {
             
             header("Location: " . base_url() . "index.php/admin");
             
         }
         
+        /*
+         * If trying to log in.
+         */
         if(isset($_POST["submit_login"])) {
             
             if(sha1($_POST["param_password"]) == sha1(ADMIN_PASSWORD)) {
@@ -38,6 +60,11 @@ class AdminLogin extends CI_Controller {
         
     }
 
+    /**
+     * Render a page.
+     * 
+     * @param String $page
+     */
     public function page($page) {
         
         $allowed_pages = array(

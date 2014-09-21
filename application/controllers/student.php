@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * Student Controller
+ * 
+ * @author Bob Desaunois <bobdesaunois@gmail.com>
+ */
 class Student extends CI_controller {
-
+    
+    /*
+     * Constructor.
+     */
     function __construct() {
         
         parent::__construct();
@@ -16,17 +24,27 @@ class Student extends CI_controller {
         
     }
     
+    /*
+     * Index.
+     */
     public function index($page = "student_group_overview") {
         
         $this->controls();
         $this->page($page);
         
-    }
+    } 
     
+    /**
+     * Controls
+     */
     public function controls() {
         
+        //Authenticate the user
         $this->authenticate();
         
+        /*
+         * Change password
+         */
         if(isset($_POST["submit_changepassword"])) {
             
             $email = $this->session->userdata("email");
@@ -41,6 +59,9 @@ class Student extends CI_controller {
             
         }
         
+        /*
+         * Change grade
+         */
         if(isset($_POST["submit_grade"])) {
             
             $id     = $this->User_model->getIdByEmail($this->session->userdata("email"));
@@ -54,6 +75,9 @@ class Student extends CI_controller {
             
         }
         
+        /*
+         * Join a group
+         */
         if(isset($_POST["submit_joingroup"])) {
             
             $groupcode = $_POST["param_groupcode"];
@@ -64,6 +88,9 @@ class Student extends CI_controller {
         
     }
     
+    /**
+     * Authenticate the user.
+     */
     private function authenticate() {
         
         if(!$this->session->userdata("email")) {
@@ -83,6 +110,11 @@ class Student extends CI_controller {
         
     }
     
+    /**
+     * Fetch the profile of a group.
+     * 
+     * @param int $param_id
+     */
     public function groupProfile($param_id) {
         
 //        CONTROLS
@@ -94,10 +126,13 @@ class Student extends CI_controller {
             
         } else {
             
+            //Get target group
             $data["group"] = $this->Group_model->getGroupById($param_id);
             
+            //Get the user
             $me = $this->User_model->getIdByEmail($this->session->userdata("email"));
             
+            //If the group wasn't found
             if( ! $data["group"]) {
                 
                 $this->session->set_userdata("warning", "This group does not exist.");
@@ -105,7 +140,8 @@ class Student extends CI_controller {
                 exit(0);
                 
             } else {
-            
+                
+                //Check if the user is a part of the group
                 if( ! $this->Group_model->isMemberOfGroupById($param_id, $me)) {
                 
                     $this->session->set_userdata("warning", "You are no part of this group.");
@@ -126,6 +162,11 @@ class Student extends CI_controller {
         
     }
     
+    /**
+     * Fetch the profile of an assignment.
+     * 
+     * @param int $param_id
+     */
     public function assignmentProfile($param_id) {
         
         //CONTROLS
@@ -218,12 +259,20 @@ class Student extends CI_controller {
         
     }
     
+    /**
+     * Log the student out
+     */
     public function logout() {
         
         $this->User_model->logout();
         
     }
     
+    /**
+     * Render an allowed page.
+     * 
+     * @param String $page
+     */
     public function page($page) {
         
         $allowed_pages = array(

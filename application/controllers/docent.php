@@ -1,9 +1,17 @@
 <?php
 
+/**
+ * Docent Controller.
+ * 
+ * @author Bob Desaunois <bobdesaunois@gmail.com>
+ */
 class Docent extends CI_Controller {
 
 //    private /*Object*/ $group;
     
+    /**
+     * Constructor
+     */
     function __construct() {
         
         parent::__construct();
@@ -17,6 +25,11 @@ class Docent extends CI_Controller {
         
     }
     
+    /**
+     * Index.
+     * 
+     * @param String $page
+     */
     public function index($page = "docent_group_overview") {
         
         $this->controls();
@@ -24,8 +37,10 @@ class Docent extends CI_Controller {
         
     }
     
+    /**
+     * Authenticate if the user /actually/ is a teacher and logged in at all.
+     */
     private function authenticate() {
-         
         
         if(!$this->session->userdata("email")) {
             
@@ -49,6 +64,9 @@ class Docent extends CI_Controller {
         
         $this->authenticate();
                 
+        /*
+         * Creating a group.
+         */
         if(isset($_POST["submit_groep"])) {
             
             $name = $_POST["param_groep_name"];
@@ -56,10 +74,14 @@ class Docent extends CI_Controller {
             
             $this->Group_model->create($name, $description);
             
-            $this->session->set_userdata("warning", "Group successfully created.");
+            $this->session
+                 ->set_userdata("warning", "Group successfully created.");
             
         }
         
+        /*
+         * Changing the password.
+         */
         if(isset($_POST["submit_changepassword"])) {
             
             $email = $this->session->userdata("email");
@@ -74,40 +96,65 @@ class Docent extends CI_Controller {
             
         }
         
+        /*
+         * Edit a group.
+         */
         if(isset($_POST["submit_editgroup"])) {
             
             die("EDIT GROUP");
             
+            $param_id       = 0; // FIX THIS.
             $name           = $_POST["param_group_name"];
             $description    = $_POST["param_group_description"];
             
 //            die(var_dump($param_id));
             
-            $this->Group_model->updateNameAndDescriptionById($param_id, $name, $description);
-            $this->session->set_userdata("warning", "Group successfully edited.");
+            $this->Group_model
+                 ->updateNameAndDescriptionById
+                    ($param_id, $name, $description);
+            $this->session
+                 ->set_userdata("warning", "Group successfully edited.");
             
         }
         
     }
     
+    /**
+     * Log a teacher out.
+     */
     public function logout() {
         
         $this->session->unset_userdata("email");
-        $this->session->set_userdata("warning", "You've successfully logged out!");
+        $this->session
+             ->set_userdata("warning", "You've successfully logged out!");
         header("Location: " . base_url() . "index.php");
         exit();
         
     }
     
+    /**
+     * Removes a student form a group by the group and student ID.
+     * 
+     * @param int $group_id
+     * @param int $param_id
+     */
     public function deleteStudentFromGroup($group_id, $param_id) {
         
         $this->Group_model->leave($group_id, $param_id);
-        $this->session->set_userdata("warning", "Student successfully deleted from group.");
+        $this->session
+             ->set_userdata
+                ("warning", "Student successfully deleted from group.");
         header("Location: " . base_url() . "index.php/docent/groupprofile/" . $group_id);
         exit(0);
         
     }
     
+    /**
+     * Allows for editing groups by their ID's
+     * and renders the appropriate page for it.
+     * 
+     * @param int $param_id
+     */
     public function groupSettings($param_id) {
         
         if( ! file_exists(APPPATH . "views/pages/docent_group_settings.php")) {
@@ -126,12 +173,18 @@ class Docent extends CI_Controller {
         
     }
     
+    /**
+     * Deletes a group by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function deleteGroup($param_id) {
         
         if(isset($param_id)) {
 
             $this->Group_model->deleteById($param_id);
-            $this->session->set_userdata("warning", "Group successfully deleted!");
+            $this->session
+                 ->set_userdata("warning", "Group successfully deleted!");
             header("Location: " . base_url() . "index.php/docent");
             exit(0);
             
@@ -139,54 +192,90 @@ class Docent extends CI_Controller {
         
     }
     
+    /**
+     * Deletes homework by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function deleteHomework($param_id) {
         
         $homework = $this->Homework_model->getById($param_id);
         $this->Homework_model->deleteById($param_id);
         $this->session->set_userdata("warning", "Homework deleted.");
-        header("Location: " . base_url() . "index.php/docent/assignmentprofile/" . $homework["assignment_id"]);
+        header("Location: " . base_url()
+                . "index.php/docent/assignmentprofile/"
+                . $homework["assignment_id"]);
         exit(0);
                 
     }
     
+    /**
+     * Approves homework by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function approveHomework($param_id) {
         
         $param_status = "approved";
         
         $homework = $this->Homework_model->getById($param_id);
         $this->Homework_model->updateStatusById($param_id, $param_status);
-        $this->session->set_userdata("warning", "Homework status updated to approved!");
-        header("Location: " . base_url() . "index.php/docent/assignmentprofile/" . $homework["assignment_id"]);
+        $this->session
+             ->set_userdata("warning", "Homework status updated to approved!");
+        header("Location: " . base_url()
+                . "index.php/docent/assignmentprofile/"
+                . $homework["assignment_id"]);
         exit(0);
         
     }
     
+    /**
+     * Rejects homework by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function rejectHomework($param_id) {
         
         $param_status = "rejected";
         
         $homework = $this->Homework_model->getById($param_id);
         $this->Homework_model->updateStatusById($param_id, $param_status);
-        $this->session->set_userdata("warning", "Homework status updated to rejected!");
-        header("Location: " . base_url() . "index.php/docent/assignmentprofile/" . $homework["assignment_id"]);
+        $this->session
+              ->set_userdata("warning", "Homework status updated to rejected!");
+        header("Location: " . base_url()
+                . "index.php/docent/assignmentprofile/"
+                . $homework["assignment_id"]);
         exit(0);
         
     }
     
+    /**
+     * Deletes an assignment by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function deleteAssignment($param_id) {
         
         if(isset($param_id)) {
             
             $assignment = $this->Assignment_model->getAssignmentById($param_id);
             $this->Assignment_model->deleteById($param_id);
-            $this->session->set_userdata("warning", "Assignment successfully deleted.");
-            header("Location: " . base_url() . "index.php/docent/groupprofile/" . $assignment["group_id"]);
+            $this->session
+                 ->set_userdata("warning", "Assignment successfully deleted.");
+            header("Location: "
+                    . base_url() . "index.php/docent/groupprofile/"
+                    . $assignment["group_id"]);
             exit(0);
             
         }
         
     }
     
+    /**
+     * Fetches the profile of an assignment by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function assignmentProfile($param_id) {
         
         //CONTROLS
@@ -225,6 +314,11 @@ class Docent extends CI_Controller {
         
     }
     
+    /**
+     * Fetches the profile of a group by it's ID.
+     * 
+     * @param int $param_id
+     */
     public function groupProfile($param_id) {
         
 //        CONTROLS
@@ -276,7 +370,9 @@ class Docent extends CI_Controller {
 
                 } else {
                     
-                    $this->session->set_userdata("warning", "There is no such group as one with this ID (" . $param_id . ").");
+                    $this->session
+                         ->set_userdata
+                            ("warning", "There is no such group as one with this ID (" . $param_id . ").");
                     header("Location: " . base_url() . "index.php/docent");
                     exit(0);
                     
@@ -288,6 +384,11 @@ class Docent extends CI_Controller {
         
     }
     
+    /**
+     * Renders an allowed page.
+     * 
+     * @param String $page
+     */
     public function page($page) {
         
         $allowed_pages = array(
