@@ -18,7 +18,7 @@ define("MASTER_EMAIL", "admin@hms.com");
 
 define("TITLE", "HMS");
 
-define("WEBSITE_URL", "http://192.99.7.141/Project-Falcon-Storm");
+define("WEBSITE_URL", "http://192.99.7.141/HMS");
 
 define("USERNAME", "root");
 define("PASSWORD", "toor");
