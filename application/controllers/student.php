@@ -236,11 +236,23 @@ class Student extends CI_controller {
 
             } else {
                 
-                $user_id = $this->User_model->getIdByEmail($this->session->userdata("email"));
-                
+                $user_id = $this->User_model->getIdByEmail ($this->session->userdata("email"));
+
+                $assignment = $this->Assignment_model->getAssignmentById($param_id);
+                $user_grade = $this->User_model->getGradeById ($user_id);
+
+                if ( (int) $assignment["grade"] != 0
+                  && (int) $assignment["grade"] != (int) $usergrade) {
+
+                    $this->session->set_userdata ("warning", "Your grade is not allowed to partake in this assignment.");
+                    header ("Location: " . base_url () . "index.php/student");
+                    exit (0);
+
+                }
+
                 $data["homework"] = $this->Homework_model->getHomeworkByAssignmentIdAndUserId($param_id, $user_id);
-                
-                if($data["assignment"] = $this->Assignment_model->getAssignmentById($param_id)) {
+
+                if($data["assignment"] = $assignment) {
                 
                     $this->load->view("templates/header.php");
                     $this->load->view("pages/student_assignment_profile.php", $data);
