@@ -324,10 +324,11 @@ class Docent extends CI_Controller {
         
         if(isset($_POST["submit_create_assignment"])) {
             
-            $title = $_POST["param_title"];
-            $description = $_POST["param_description"];
+            $title          = $_POST["param_title"];
+            $description    = $_POST["param_description"];
+            $grade          = $_POST["param_grade"];
             
-            $this->Assignment_model->create($title, $description, $param_id);
+            $this->Assignment_model->create($title, $description, $param_id, $grade);
             
             $this->session->set_userdata("warning", "Assignment successfully created.");
             

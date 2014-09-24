@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Assignment profile</h3>
+    <h3 class="panel-title">Assignment profile <span class='label-info label'>Grade: <b><?=$assignment["grade"] != 0 ? $assignment["grade"] : "No grade filter.";?></b></span></h3>
   </div>
   <div class="panel-body">
       <?php // die(var_dump($assignment)); ?>

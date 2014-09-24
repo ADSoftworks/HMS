@@ -124,10 +124,18 @@
 
                 <br/>
 
+                <div class="input-group col-md-6">
+                    <p>Set this to 0 to apply no grade filter.</p>
+                    <input name="param_grade" type="number" class="form-control" placeholder="Grade filter" required />
+
+                </div>
+
+                <br/>
+
                 <div class="btn-group">
                     <input name="submit_create_assignment" type="submit" 
                            class="btn btn-primary" value="Create assignment" />
-                  </div>
+                </div>
             
             </form>
             
@@ -162,6 +170,7 @@
                     <a href="<?=base_url();?>index.php/docent/assignmentprofile/<?=$assignment["id"];?>" class="list-group-item">
                     <h4 class="list-group-item-heading lead"><?=$assignment["title"];?></h4>
                     <p class="list-group-item-text"><?=$assignment["description"];?></p>
+                    <span class='label-primary label'>Grade: <b><?=$assignment["grade"];?></b></span>
                     </a>
 
                     <?php

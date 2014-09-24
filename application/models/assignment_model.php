@@ -15,7 +15,26 @@ class Assignment_model extends CI_Model {
         parent::__construct();
         
     }
-    
+
+    public function getGradeById ($param_id) {
+
+        $sql = "SELECT grade "
+             . "FROM assignments "
+             . "WHERE id = :id "
+             . "LIMIT 1;";
+
+        $stmt = $this->db->conn_id->prepare ($sql);
+
+        $stmt->bindParam (":id", $param_id, PDO::PARAM_INT);
+        $stmt->execute ();
+
+        $result = $stmt->fetch (PDO::FETCH_ASSOC);
+        $stmt->closeCursor ();
+
+        return $result ? $result : false;
+
+    }
+
     /**
      * Creates an assignment
      * 
@@ -23,16 +42,17 @@ class Assignment_model extends CI_Model {
      * @param String $param_description
      * @param int $param_group_id
      */
-    public function create($param_title, $param_description, $param_group_id) {
+    public function create($param_title, $param_description, $param_group_id, $param_grade) {
         
-        $sql =    "INSERT INTO assignments(title, description, group_id) "
-                . "VALUES(:title, :description, :group_id);";
+        $sql =    "INSERT INTO assignments(title, description, group_id, grade) "
+                . "VALUES(:title, :description, :group_id, :grade);";
         
         $stmt = $this->db->conn_id->prepare($sql);
         
         $stmt->bindParam(":title", $param_title, PDO::PARAM_STR);
         $stmt->bindParam(":description", $param_description, PDO::PARAM_STR);
         $stmt->bindParam(":group_id", $param_group_id, PDO::PARAM_INT);
+        $stmt->bindParam(":grade", $param_grade, PDO::PARAM_INT);
         $stmt->execute();
         
     }
