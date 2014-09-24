@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2014 at 03:58 PM
+-- Generation Time: Sep 25, 2014 at 12:34 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -15,10 +15,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-
-CREATE DATABASE homework;
-
-USE homework;
 
 --
 -- Database: `homework`
@@ -35,8 +31,10 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   `title` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
   `group_id` int(11) NOT NULL,
+  `grade` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -52,7 +50,8 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `student_ids` longtext,
   `code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -68,7 +67,24 @@ CREATE TABLE IF NOT EXISTS `homework` (
   `group_id` int(11) NOT NULL,
   `assignment_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE IF NOT EXISTS `settings` (
+  `passcode` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`passcode`) VALUES
+('ThisIsASecretCode');
 
 -- --------------------------------------------------------
 
@@ -85,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(125) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
