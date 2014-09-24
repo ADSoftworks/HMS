@@ -283,7 +283,8 @@ class User_model extends CI_Model {
     }
     
     /**
-     * Register a user into the database.
+     * Checks if a user's passwords match and if the user already exists
+     * if not it will register it into the database.
      * 
      * @param type $email
      * @param null $password
@@ -305,12 +306,14 @@ class User_model extends CI_Model {
             if($password != $password_confirmation) {
 
                 $this->session->set_userdata("warning", "The passwords do not match.");
+                exit (0);
 
             } else {
 
                 if($this->exists($email)) {
 
                     $this->session->set_userdata("warning", "Account already exists.");
+                    exit (0);
 
                 } else {
                     
@@ -336,12 +339,12 @@ class User_model extends CI_Model {
                     $stmt->bindParam(":grade", $grade, PDO::PARAM_INT);
                     $stmt->execute();
 
-                    if($stmt->errorCode() != 0) {
-                        
-                        $errors = $stmt->errorInfo();
-                        die($errors[2]);
-                        
-                    }
+//                    if($stmt->errorCode() != 0) {
+//
+//                        $errors = $stmt->errorInfo();
+//                        die($errors[2]);
+//
+//                    }
                     
                     $this->session->set_userdata("warning", "Account successfully created!");
 

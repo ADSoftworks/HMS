@@ -7,7 +7,7 @@
  */
 class Admin extends CI_Controller {
 
-    private $filesizelimit;
+    private $passcode;
     
     /**
      * Constructor
@@ -32,8 +32,8 @@ class Admin extends CI_Controller {
     public function index($page = "admin_panel") {
         
         $this->controls();
-        
-        $this->page($page);
+        $this->passcode = $this->Admin_model->getPasscode ();
+        $this->page ($page);
         
     }
     
@@ -88,7 +88,21 @@ class Admin extends CI_Controller {
             }
             
         }
-        
+
+        /*
+         * If submitted a new passcode
+         */
+        if(isset($_POST["submit_passcode"])) {
+
+            $passcode = $_POST["param_passcode"];
+
+            $this->Admin_model->setPasscode ($passcode);
+            $this->session->set_userdata("warning", "Passcode has been set.");
+            header("Location: " . base_url() . "index.php/admin");
+            exit();
+
+        }
+
         /*
          * If admin creates a teacher account.
          */
@@ -212,7 +226,7 @@ class Admin extends CI_Controller {
             
         } else {
             
-            $data["filesizelimit"] = $this->filesizelimit;
+            $data["passcode"] = $this->passcode;
             
             $this->load->view("templates/header.php", $data);
             $this->load->view("pages/" . $page . ".php", $data);

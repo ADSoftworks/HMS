@@ -18,11 +18,11 @@ define("MASTER_EMAIL", "admin@hms.com");
 
 define("TITLE", "HMS");
 
-define("WEBSITE_URL", "http://192.99.7.141/HMS");
+define("WEBSITE_URL", "http://localhost/HMS");
 
 define("USERNAME", "root");
-define("PASSWORD", "toor");
-define("DATABASE", "homework");
+define("PASSWORD", "");
+define("DATABASE", "homework"); 
 define("HOSTNAME", "mysql:host=localhost;dbname=" . DATABASE);
 
 ///////////////////////////

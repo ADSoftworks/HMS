@@ -14,26 +14,26 @@ class Admin_model extends CI_Model {
         
     }
     
-//    public function getFileSizeLimit() {
-//        
-//        $sql = "SELECT filesizelimit FROM admin;";
-//        
-//        $stmt = $this->db->conn_id->prepare($sql);
-//        $stmt->execute();
-//        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-//        
-//        return $result["filesizelimit"];
-//        
-//    }
-//    
-//    public function setFileSizeLimit($limit) {
-//        
-//        $sql = "UPDATE admin SET filesizelimit = :limit WHERE id = 1";
-//        
-//        $stmt = $this->db->conn_id->prepare($sql);
-//        $stmt->bindParam(":limit", $limit, PDO::PARAM_INT);
-//        $stmt->execute();
-//        
-//    }
+    public function getPasscode () {
+
+        $sql = "SELECT passcode FROM settings LIMIT 1;";
+
+        $stmt = $this->db->conn_id->prepare ($sql);
+        $stmt->execute ();
+        $result = $stmt->fetch (PDO::FETCH_ASSOC);
+
+        return $result["passcode"];
+
+    }
+
+    public function setPasscode ($param_passcode) {
+
+        $sql = "UPDATE settings SET passcode = :passcode LIMIT 1";
+
+        $stmt = $this->db->conn_id->prepare ($sql);
+        $stmt->bindParam (":passcode", $param_passcode, PDO::PARAM_INT);
+        $stmt->execute ();
+
+    }
     
 }
