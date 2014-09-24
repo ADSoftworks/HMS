@@ -20,6 +20,11 @@ SET time_zone = "+00:00";
 -- Database: `homework`
 --
 
+CREATE DATABASE homework;
+
+USE homework;
+
+
 -- --------------------------------------------------------
 
 --
