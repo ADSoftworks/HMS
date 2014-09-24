@@ -415,7 +415,30 @@ class User_model extends CI_Model {
         return $result;
         
     }
-    
+
+    /**
+     * Gets the grade of a user.
+     *
+     * @param int $param_id
+     */
+    public function getGradeById ($param_id) {
+
+        $sql = "SELECT grade "
+             . "FROM users "
+             . "WHERE id = :id "
+             . "LIMIT 1;";
+
+        $stmt = $this->db->conn_id->prepare ($sql);
+        $stmt->bindParam (":id", $param_id, PDO::PARAM_INT);
+        $stmt->execute ();
+
+        $result = $stmt->fetch (PDO::FETCH_ASSOC);
+        $stmt->closeCursor ();
+
+        return $result ? $result["grade"] : false;
+
+    }
+
     /**
      * Updates the grades of a user by the user's ID.
      * 

@@ -54,13 +54,7 @@
             <div class="col-lg-6">
             
              <?php
-            
-//            die(var_dump($group));
-             
-            /*
-             * @TODO: make line below work and make it so that you can quickly see the status of an assignment.
-             */
-//            $homework = $this->Homework_model->getHomeworkFromGroupIdAndUserId();
+
             $assignments = $this->Assignment_model->getAllAssignmentsFromGroupById($group["id"]);
              
             if( ! $assignments) {
@@ -68,9 +62,13 @@
                 echo "<strong>This group has no assignments.</strong>";
                 
             } else {
-            
                 
                 foreach($assignments as $assignment) {
+
+                    $me = $this->User_model->getIdByEmail ($this->session->userdata("email"));
+                    $my_grade = $this->User_model->getGradeById ($me);
+
+                    if( (int) $assignment["grade"] == 0 || (int) $assignment["grade"] == (int) $my_grade):
 
                     ?>
 
@@ -117,6 +115,8 @@
                     </a>
 
                     <?php
+
+                    endif;
 
                 }
             
