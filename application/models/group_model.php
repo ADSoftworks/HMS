@@ -47,8 +47,8 @@ class Group_model extends CI_Model {
      */
     public function updateNameAndDescriptionById($param_id, $param_name, $param_description) {
         
-        $sql =    "UPDATE group "
-                . "SET name = : name, description = :description "
+        $sql =    "UPDATE groups "
+                . "SET name = :name, description = :description "
                 . "WHERE id = :id "
                 . "LIMIT 1;";
         
@@ -62,18 +62,18 @@ class Group_model extends CI_Model {
     
     /**
      * Create a group
-     * 
+     *
      * @param String $param_name
      * @param String $param_description
      */
     public function create($param_name, $param_description) {
-        
+
         $author_id = $this->User_model->getId();
-        
+
         if( ! $this->existsByName($param_name)) {
-        
+
             $code = substr(sha1(rand(0, 2147000)), 0, 6);
-            
+
             $sql =    "INSERT INTO groups(name, description, docent_id, code) "
                     . "VALUES(:name, :description, :docent_id, :code);";
 
@@ -85,7 +85,7 @@ class Group_model extends CI_Model {
             $stmt->execute();
 
         }
-        
+
     }
     
     /**

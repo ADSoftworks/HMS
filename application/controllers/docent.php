@@ -96,27 +96,6 @@ class Docent extends CI_Controller {
             
         }
         
-        /*
-         * Edit a group.
-         */
-        if(isset($_POST["submit_editgroup"])) {
-            
-            die("EDIT GROUP");
-            
-            $param_id       = 0; // FIX THIS.
-            $name           = $_POST["param_group_name"];
-            $description    = $_POST["param_group_description"];
-            
-//            die(var_dump($param_id));
-            
-            $this->Group_model
-                 ->updateNameAndDescriptionById
-                    ($param_id, $name, $description);
-            $this->session
-                 ->set_userdata("warning", "Group successfully edited.");
-            
-        }
-        
     }
     
     /**
@@ -156,7 +135,27 @@ class Docent extends CI_Controller {
      * @param int $param_id
      */
     public function groupSettings($param_id) {
-        
+
+        //Controls
+
+        /*
+         * Edit a group.
+         */
+        if(isset($_POST["submit_editgroup"])) {
+
+            $id              = $param_id;
+            $name           = $_POST["param_group_name"];
+            $description    = $_POST["param_group_description"];
+
+//            die(var_dump($param_id));
+
+            $this->Group_model->updateNameAndDescriptionById ($id, $name, $description);
+            $this->session->set_userdata ("warning", "Group successfully edited.");
+
+        }
+
+        //Controls end
+
         if( ! file_exists(APPPATH . "views/pages/docent_group_settings.php")) {
             
             show_404();

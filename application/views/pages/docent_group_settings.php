@@ -14,38 +14,38 @@
       </button>
       <!--</a>-->
       <br/><br/>
-<!--      <div class="panel panel-primary">
-          
+      <div class="panel panel-primary">
+
             <div class="panel-heading">
               <h3 class="panel-title">Edit group</h3>
             </div>
             <div class="panel-body">
-              
+
                 <form method="POST">
-                
+
                     <div class="col-lg-6">
 
                         <div class="input-group">
                         <span class="input-group-addon">Abc</span>
-                        <input name="param_group_name" type="text" class="form-control" 
+                        <input name="param_group_name" type="text" class="form-control"
                                placeholder="Group name" value="<?=$group["name"];?>" required>
                         </div>
                         <br/>
                         <div class="input-group">
                             <span class="input-group-addon">Abc</span>
-                            <textarea name="param_group_description" class="form-control" 
+                            <textarea name="param_group_description" class="form-control"
                                       placeholder="Short description" required><?=$group['description'];?></textarea>
                         </div>
                         <br/>
                         <input name="submit_editgroup" type="submit" class="btn btn-primary" value="Edit group" />
 
                     </div>
-                    
+
                 </form>
-               
-                
+
+
             </div>
-          </div>-->
+          </div>
           
   </div>
 </div>
