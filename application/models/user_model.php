@@ -88,7 +88,7 @@ class User_model extends CI_Model {
                     "Akepa are part of the finch family, specifically a group of honeycreeper native only to Hawaii. ",
                     "To ensure that unique birds like the Akepa don’t go extinct please support your local wildlife conservation efforts. Awareness can go a long way! ");
                 
-                $random = rand(0, count($truefax));
+                $random = mt_rand(0, (count($truefax) - 1));
                 
 //                echo $random;
                 
