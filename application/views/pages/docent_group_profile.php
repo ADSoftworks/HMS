@@ -170,7 +170,13 @@
                     <a href="<?=base_url();?>index.php/docent/assignmentprofile/<?=$assignment["id"];?>" class="list-group-item">
                     <h4 class="list-group-item-heading lead"><?=$assignment["title"];?></h4>
                     <p class="list-group-item-text"><?=$assignment["description"];?></p>
-                    <span class='label-primary label'>Grade: <b><?=$assignment["grade"];?></b></span>
+
+                        <?php if ($assignment["grade"] != 0): ?>
+                            <span class='label-primary label'>Grade: <b><?=$assignment["grade"];?></b></span>
+                        <?php else: ?>
+                            <span class='label-primary label'>Grade: <b>no grade filter</b></span>
+                        <?php endif; ?>
+
                     </a>
 
                     <?php
