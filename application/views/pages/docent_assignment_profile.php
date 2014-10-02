@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Assignment profile <span class='label-info label'>Grade: <b><?=$assignment["grade"] != 0 ? $assignment["grade"] : "No grade filter.";?></b></span></h3>
+    <h3 class="panel-title">Assignment profile <span class='label-info label'>Grade: <b><?=$assignment["grade"] != 0 ? $assignment["grade"] : "No grade filter";?></b></span></h3>
   </div>
   <div class="panel-body">
       <?php // die(var_dump($assignment)); ?>
@@ -57,7 +57,6 @@
                 
                 </tr>
                 <?php foreach($homework as $h): ?>
-                <?php // die(var_dump($h["id"])); ?>
                 <tr>
                 <td>
                     <?=$h["firstname"];?> <?=$h["lastname"];?>
@@ -97,7 +96,7 @@
                 <?php endif; ?>
                 </td>
                 <td>
-                    <a href="<?=base_url()?>/assets/uploads/<?=$h["file_source"];?>" target="_blank"><button class="btn btn-primary">View homework</button></a>
+                    <a href="<?=base_url()?>assets/uploads/<?=$h["file_source"];?>" target="_blank">View homework</a>
                 </td>
                 <td>
                     <a href="<?=base_url();?>index.php/docent/approvehomework/<?=$h["id"];?>">Approve</a> |

@@ -86,7 +86,7 @@
 
                     ?>
 
-                    <a href="<?=base_url()?>/index.php/student/groupprofile/<?=$group['id'];?>" class="list-group-item">
+                    <a href="<?=base_url()?>index.php/student/groupprofile/<?=$group['id'];?>" class="list-group-item">
                     <h4 class="list-group-item-heading"><?php echo $group["name"]; ?></h4>
                     <p class="list-group-item-text"><?php echo $group["description"]; ?></p>
                     </a>
