@@ -71,8 +71,8 @@ class User_model extends CI_Model {
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
             
-            $encrypted_password = sha1($password);
-            
+            $encrypted_password = sha1 ($result["salt"] . $password);
+
             if($result["password"] == $encrypted_password) {
                 
                 $this->session->set_userdata("email", $result["email"]);
@@ -321,22 +321,25 @@ class User_model extends CI_Model {
                     $firstname  = ucfirst($firstname);
                     $lastname   = ucfirst($lastname);
 
-                    $encrypted_password = sha1($password);
+                    $salt = sha1 (openssl_random_pseudo_bytes(100));
+
+                    $encrypted_password = sha1($salt . $password);
 
                     //empty them out just to be sure,
                     $password = null;
                     $password_confirmation = null;
 
-                    $sql =    "INSERT INTO users(email, password, firstname, lastname, group_id, grade)"
-                            . "VALUES(:email, :password, :firstname, :lastname, :group_id, :grade);";
+                    $sql =    "INSERT INTO users(email, password, firstname, lastname, group_id, grade, salt)"
+                            . "VALUES(:email, :password, :firstname, :lastname, :group_id, :grade, :salt);";
                     
                     $stmt = $this->db->conn_id->prepare($sql);
-                    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-                    $stmt->bindParam(":password", $encrypted_password, PDO::PARAM_STR);
-                    $stmt->bindParam(":firstname", $firstname, PDO::PARAM_STR);
-                    $stmt->bindParam(":lastname", $lastname, PDO::PARAM_STR);
-                    $stmt->bindParam(":group_id", $group_id, PDO::PARAM_INT);
-                    $stmt->bindParam(":grade", $grade, PDO::PARAM_INT);
+                    $stmt->bindParam (":email", $email, PDO::PARAM_STR);
+                    $stmt->bindParam (":password", $encrypted_password, PDO::PARAM_STR);
+                    $stmt->bindParam (":firstname", $firstname, PDO::PARAM_STR);
+                    $stmt->bindParam (":lastname", $lastname, PDO::PARAM_STR);
+                    $stmt->bindParam (":group_id", $group_id, PDO::PARAM_INT);
+                    $stmt->bindParam (":grade", $grade, PDO::PARAM_INT);
+                    $stmt->bindParam (":salt", $salt, PDO::PARAM_STR);
                     $stmt->execute();
 
 //                    if($stmt->errorCode() != 0) {
