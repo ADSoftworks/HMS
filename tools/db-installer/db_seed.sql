@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2014 at 12:34 AM
+-- Generation Time: Oct 03, 2014 at 02:24 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,11 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `homework`
 --
-
 CREATE DATABASE homework;
 
 USE homework;
-
 
 -- --------------------------------------------------------
 
@@ -38,10 +36,7 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   `group_id` int(11) NOT NULL,
   `grade` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
-
-
--- --------------------------------------------------------
+);
 
 --
 -- Table structure for table `groups`
@@ -55,10 +50,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `student_ids` longtext,
   `code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
-
-
--- --------------------------------------------------------
+);
 
 --
 -- Table structure for table `homework`
@@ -71,8 +63,9 @@ CREATE TABLE IF NOT EXISTS `homework` (
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `assignment_id` int(11) NOT NULL,
+  `comment` longtext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 -- --------------------------------------------------------
 
@@ -105,9 +98,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `grade` int(11) DEFAULT NULL,
   `email` varchar(125) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `salt` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
-
+);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
