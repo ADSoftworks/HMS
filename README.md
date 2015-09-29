@@ -9,7 +9,7 @@ A homework management system designed and dedicatated for use in education.
 
 2. USAGE 
 
-    This software is intended solely for use by educators and institutions both public and private. Usage outside of this is well in the rights of the user as long as it does not violate our license agreeement. Auxilary use is not supported, otherwise. 
+    This software is intended solely for use by educators and institutions both public and private. Usage outside of this is well in the rights of the user as long as it does not violate our license agreeement. Auxiliary use is not supported, otherwise. 
     
 3. LICENSE
 
